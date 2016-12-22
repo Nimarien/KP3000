@@ -142,6 +142,8 @@
     <Content Include="KP3000.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="användare.cs" />
+    <Compile Include="frågor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="KP3000.Master.cs">
       <DependentUpon>KP3000.Master</DependentUpon>
