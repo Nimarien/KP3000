@@ -11,5 +11,6 @@ namespace KP3000
         public string Användarnamn { get; set; }
         public bool Anställd { get; set; }
         public bool klaratTest { get; set; }
+        public DateTime klaratSenast { get; set; }
     }
 }
