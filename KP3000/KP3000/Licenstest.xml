@@ -1,5 +1,264 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <frågor>
   
+  <fråga>
+    <del>Produkter och hantering av kundens affärer</del>
+    <nummer>1</nummer>
+    <text>hur långt är ett snöre?</text>
+    <alternativett>30 cm</alternativett>
+    <alterntivtvå>40 cm</alterntivtvå>
+    <alternativtre>50 cm</alternativtre>
+    <svar>30 cm</svar>   
+  </fråga>
+
+  <fråga>
+    <del>Produkter och hantering av kundens affärer</del>
+    <nummer>2</nummer>
+    <text>vilket språk talar man i Schweiz?</text>
+    <alternativett>tyska</alternativett>
+    <alterntivtvå>engelska</alterntivtvå>
+    <alternativtre>italienska</alternativtre>
+    <svar>tyska</svar>
+    <svartvå>italienska</svartvå>
+  </fråga>
+
+  <fråga>
+    <del>Produkter och hantering av kundens affärer</del>
+    <nummer>3</nummer>
+    <text>vad bryter man i gruvan i Kiruna?</text>
+    <alternativett>socker</alternativett>
+    <alterntivtvå>bly</alterntivtvå>
+    <alternativtre>järn</alternativtre>
+    <svar>järn</svar>
+  </fråga>
+
+  <fråga>
+    <del>Produkter och hantering av kundens affärer</del>
+    <nummer>4</nummer>
+    <text>Östersund ligger vid vilken sjö?</text>
+    <alternativett>storsjön</alternativett>
+    <alterntivtvå>sidsjön</alterntivtvå>
+    <alternativtre>dalaälven</alternativtre>
+    <svar>storsjön</svar>
+  </fråga>
+
+  <fråga>
+    <del>Produkter och hantering av kundens affärer</del>
+    <nummer>5</nummer>
+    <text>vad står bokstaven e för i e-post</text>
+    <alternativett>erotisk</alternativett>
+    <alterntivtvå>exklusiv</alterntivtvå>
+    <alternativtre>elektronisk</alternativtre>
+    <svar>30 cm</svar>
+  </fråga>
+
+  <fråga>
+    <del>Produkter och hantering av kundens affärer</del>
+    <nummer>6</nummer>
+    <text>vem har lett allsång på skansen?</text>
+    <alternativett>adolf hitler</alternativett>
+    <alterntivtvå>lasse berghagen</alterntivtvå>
+    <alternativtre>petra marklund</alternativtre>
+    <svar>lasse berghagen</svar>
+    <svartvå>petra marklund</svartvå>
+  </fråga>
+
+  <fråga>
+    <del>Produkter och hantering av kundens affärer</del>
+    <nummer>7</nummer>
+    <text>vilken är sveriges största stad?</text>
+    <alternativett>stöde</alternativett>
+    <alterntivtvå>liden</alterntivtvå>
+    <alternativtre>stockholm</alternativtre>
+    <svar>stockholm</svar>
+  </fråga>
+
+  <fråga>
+    <del>Produkter och hantering av kundens affärer</del>
+    <nummer>8</nummer>
+    <text>hur många strängar har en gitarr?</text>
+    <alternativett>4</alternativett>
+    <alterntivtvå>6</alterntivtvå>
+    <alternativtre>12</alternativtre>
+    <svar>6</svar>
+  </fråga>
+
+  <fråga>
+    <del>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</del>
+    <nummer>1</nummer>
+    <text>vilket/vilka av följande tal blir 5?</text>
+    <alternativett>2,5 + 2,5</alternativett>
+    <alterntivtvå>100 - 95</alterntivtvå>
+    <alternativtre>95 - 100</alternativtre>
+    <svar>2,5 + 2,5</svar>
+    <svartvå>100 - 95</svartvå>
+  </fråga>
+
+  <fråga>
+    <del>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</del>
+    <nummer>2</nummer>
+    <text>hur många bilar äger christian dahlgren?</text>
+    <alternativett>1</alternativett>
+    <alterntivtvå>2</alterntivtvå>
+    <alternativtre>3</alternativtre>
+    <svar>2</svar>
+  </fråga>
+
+  <fråga>
+    <del>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</del>
+    <nummer>3</nummer>
+    <text>hur många liter vatten måste john berglund bära varannan dag?</text>
+    <alternativett>16</alternativett>
+    <alterntivtvå>8</alterntivtvå>
+    <alternativtre>1</alternativtre>
+    <svar>16</svar>
+  </fråga>
+
+  <fråga>
+    <del>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</del>
+    <nummer>4</nummer>
+    <text>vem har räknat till oändligheten 2 gånger?</text>
+    <alternativett>steven seagal</alternativett>
+    <alterntivtvå>jiohn berglund</alterntivtvå>
+    <alternativtre>chuck norris</alternativtre>
+    <svar>chuck norris</svar>
+  </fråga>
+
+  <fråga>
+    <del>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</del>
+    <nummer>5</nummer>
+    <text>hur många skivor följer med miles davis-boxen</text>
+    <alternativett>22</alternativett>
+    <alterntivtvå>100</alterntivtvå>
+    <alternativtre>101</alternativtre>
+    <svar>100</svar>
+    <svartvå>101</svartvå>
+  </fråga>
+
+  <fråga>
+    <del>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</del>
+    <nummer>6</nummer>
+    <text>vad blir 3 + 3 * 0 / 3?</text>
+    <alternativett>1</alternativett>
+    <alterntivtvå>0</alterntivtvå>
+    <alternativtre>9</alternativtre>
+    <svar>1</svar>
+  </fråga>
+
+  <fråga>
+    <del>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</del>
+    <nummer>7</nummer>
+    <text>hur många gånger används ordet "fuck" i filmen "Wolf of wall street"?</text>
+    <alternativett>257</alternativett>
+    <alterntivtvå>681</alterntivtvå>
+    <alternativtre>569</alternativtre>
+    <svar>569</svar>
+  </fråga>
+
+  <fråga>
+    <del>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</del>
+    <nummer>8</nummer>
+    <text>Hur många bultar finns det i ölandsbron?</text>
+    <alternativett>ca 10000 bultar</alternativett>
+    <alterntivtvå>ca 20000 bultar</alterntivtvå>
+    <alternativtre>7428954 bultar</alternativtre>
+    <svar>ca 20000 bultar</svar>
+    <svartvå>7428954 bultar</svartvå>
+  </fråga>
+
+  <fråga>
+    <del>Etik och regelverk</del>
+    <nummer>1</nummer>
+    <text>varför bör man använda cykelhjälm?</text>
+    <alternativett>för att skydde huvudet om man ramlar</alternativett>
+    <alterntivtvå>för att skydda andra om man ramlar</alterntivtvå>
+    <alternativtre>för att skydda vägen om man ramlar</alternativtre>
+    <svar>för att skydda huvudet om man ramlar</svar>
+  </fråga>
+
+  <fråga>
+    <del>Etik och regelverk</del>
+    <nummer>2</nummer>
+    <text>varför ska man använda skyddsskor?</text>
+    <alternativett>för att skydda fötterna</alternativett>
+    <alterntivtvå>för att undvika att ramla</alterntivtvå>
+    <alternativtre>för att skydda andra saker</alternativtre>
+    <svar>för att skydda fötterna</svar>
+    <svartvå>för att undvika att ramla</svartvå>
+  </fråga>
+
+  <fråga>
+    <del>Etik och regelverk</del>
+    <nummer>3</nummer>
+    <text>varför ska man använda reflekterande kläder?</text>
+    <alternativett>för att det ser ballt ut</alternativett>
+    <alterntivtvå>för att du ska synas</alterntivtvå>
+    <alternativtre>för att andra ska veta om att du har ett pissigt jobb</alternativtre>
+    <svar>för att du ska synas</svar>
+  </fråga>
+
+  <fråga>
+    <del>Etik och regelverk</del>
+    <nummer>4</nummer>
+    <text>varför behövs en säkerhet vid större lån?</text>
+    <alternativett>för att banken ska kunna sno allt du äger</alternativett>
+    <alterntivtvå>för att banken ska våga låna ut pengar</alterntivtvå>
+    <alternativtre>för att banken vill veta att du har tillgångar</alternativtre>
+    <svar>för att banken vill veta att du har tillgångar</svar>
+    <svartvå>för att banken ska våga låna ut pengar</svartvå>
+  </fråga>
   
+  <fråga>
+    <del>Etik och regelverk</del>
+    <nummer>5</nummer>
+    <text>varför får anställda på banker inte installera virus på bankens dator?</text>
+    <alternativett>för att då kan tjuvar stjäla pengar</alternativett>
+    <alterntivtvå>för att det tar upp massa värdefull plats på datorn</alterntivtvå>
+    <alternativtre>för att datorn blir långsam</alternativtre>
+    <svar>för att då kan tjuvar stjäla pengar</svar>
+  </fråga>
+
+  <fråga>
+    <del>Etik och regelverk</del>
+    <nummer>6</nummer>
+    <text>är det smart att använda dubbdäck på vintern?</text>
+    <alternativett>ja</alternativett>
+    <alterntivtvå>nej</alterntivtvå>
+    <alternativtre>bara om man bor norr om dala-älven</alternativtre>
+    <svar>ja</svar>
+    <svartvå>bara om man bor norr om dala-älven</svartvå>
+  </fråga>
+
+  <fråga>
+    <del>Etik och regelverk</del>
+    <nummer>7</nummer>
+    <text>vart ska små barn sitta i en bil?</text>
+    <alternativett>på taket</alternativett>
+    <alterntivtvå>i bagageluckan</alterntivtvå>
+    <alternativtre>baklänges i en bilbarnstol</alternativtre>
+    <svar>baklänges i en bilbarnstol</svar>
+  </fråga>
+
+  <fråga>
+    <del>Etik och regelverk</del>
+    <nummer>8</nummer>
+    <text>vart ska man placera sina pengar?</text>
+    <alternativett>i aktier</alternativett>
+    <alterntivtvå>i fonder</alterntivtvå>
+    <alternativtre>i madrassen</alternativtre>
+    <svar>i aktier</svar>
+    <svartvå>i fonder</svartvå>
+  </fråga>
+
+  <fråga>
+    <del>Etik och regelverk</del>
+    <nummer>9</nummer>
+    <text>varför är det inte smart att spara sina pengar i madrassen?</text>
+    <alternativett>lätt för tjuvar att stjälar</alternativett>
+    <alterntivtvå>ingen ränta</alterntivtvå>
+    <alternativtre>obekväm säng</alternativtre>
+    <svar>lätt för tjuvar att stjälar</svar>
+    <svar>ingen ränta</svar>
+  </fråga>
+
 </frågor>
