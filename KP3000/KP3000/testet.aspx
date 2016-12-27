@@ -11,8 +11,7 @@
 
                     <div class="well well-lg">
 
-                        Här bröjar testet! 
-
+                        Här börjar testet! 
 
                     </div>
 

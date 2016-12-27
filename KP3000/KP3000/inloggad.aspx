@@ -16,6 +16,11 @@
 
                         Nu är du inloggad! här ska du få lite val på vad du kan göra.
 
+                        <form class="form" runat="server">
+
+                        <asp:Button class="btn btn-primary" ID="btnGörTest" onclick="btnGörTest_Click" runat="server" Text="Gör test!" AutoPostBack="true"/>
+                        
+                        </form>
                     </div>
 
 

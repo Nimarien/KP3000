@@ -15,16 +15,16 @@
             <form class="form-signin" runat="server">
                 <h2 class="form-signin-heading">Logga in</h2>
             <label for="användarnamn" class="sr-only">Användarnamn</label>
-            <input type="text" id="användarnamn" class="form-control" runat="server" placeholder="Användarnamn" required autofocus/>
-            <label for="lösen" class="sr-only">Password</label>
-            <input type="password" id="lösen" class="form-control" runat="server" placeholder="Lösenord" required/>
+            <input type="text" id="användarnamn" class="form-control" runat="server" placeholder="Användarnamn" required autofocus />
+            <label for="lösen" class="sr-only">Lösenord</label>
+            <input type="password" id="lösen" class="form-control" runat="server" placeholder="Lösenord" required />
         
             <div class="checkbox">
                 <label>
                     <input type="checkbox" value="komihåg"/> Kom ihåg mig
                 </label>
             </div>
-                <asp:Button class="btn-1g btn-primary btn-block" onclick="Loginknapp_Click" ID="Loginknapp" type="submit" runat="server" AutoPostBack="true" Text="Logga In" />
+                <asp:Button class="btn-lg btn-primary btn-block" onclick="Loginknapp_Click" ID="Loginknapp" type="submit" runat="server" AutoPostBack="true" Text="Logga In" />
             </form>
                 
 

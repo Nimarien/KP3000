@@ -22,8 +22,14 @@ namespace KP3000
             string anvNamn = användarnamn.Value;
             string lsn = lösen.Value;
 
-            
+            if (anvNamn == "test" && lsn == "test")
+            {
+                Response.Redirect("inloggad.aspx");
+            }
+            else
+            {
 
+            }
 
         }
     }

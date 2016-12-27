@@ -13,5 +13,10 @@ namespace KP3000
         {
 
         }
+
+        protected void btnGörTest_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("testet.aspx");
+        }
     }
 }
