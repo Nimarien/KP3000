@@ -12,24 +12,26 @@
 
     <div class="container">
         <div class="jumbotron">
-            <form class="form-signin">
+            <form class="form-signin" runat="server">
                 <h2 class="form-signin-heading">Logga in</h2>
             <label for="användarnamn" class="sr-only">Användarnamn</label>
-            <input type="text" id="användarnamn" class="form-control" placeholder="Användarnamn" required autofocus/>
+            <input type="text" id="användarnamn" class="form-control" runat="server" placeholder="Användarnamn" required autofocus/>
             <label for="lösen" class="sr-only">Password</label>
-            <input type="password" id="lösen" class="form-control" placeholder="Lösenord" required/>
+            <input type="password" id="lösen" class="form-control" runat="server" placeholder="Lösenord" required/>
         
             <div class="checkbox">
                 <label>
                     <input type="checkbox" value="komihåg"/> Kom ihåg mig
                 </label>
             </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Logga in</button>
+                <asp:Button class="btn-1g btn-primary btn-block" onclick="Loginknapp_Click" ID="Loginknapp" type="submit" runat="server" AutoPostBack="true" Text="Logga In" />
             </form>
                 
+
         
             <div class="row">
 
+                
 
                     <div class="col-md-4"></div>
                     <div class="col-md-4""></div>
