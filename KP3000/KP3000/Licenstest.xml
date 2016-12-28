@@ -6,9 +6,10 @@
     <nummer>1</nummer>
     <text>hur långt är ett snöre?</text>
     <alternativett>30 cm</alternativett>
-    <alterntivtvå>40 cm</alterntivtvå>
+    <alternativtvå>40 cm</alternativtvå>
     <alternativtre>50 cm</alternativtre>
-    <svar>30 cm</svar>   
+    <svar>30 cm</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -16,7 +17,7 @@
     <nummer>2</nummer>
     <text>vilket språk talar man i Schweiz?</text>
     <alternativett>tyska</alternativett>
-    <alterntivtvå>engelska</alterntivtvå>
+    <alternativtvå>engelska</alternativtvå>
     <alternativtre>italienska</alternativtre>
     <svar>tyska</svar>
     <svartvå>italienska</svartvå>
@@ -27,9 +28,10 @@
     <nummer>3</nummer>
     <text>vad bryter man i gruvan i Kiruna?</text>
     <alternativett>socker</alternativett>
-    <alterntivtvå>bly</alterntivtvå>
+    <alternativtvå>bly</alternativtvå>
     <alternativtre>järn</alternativtre>
     <svar>järn</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -37,9 +39,10 @@
     <nummer>4</nummer>
     <text>Östersund ligger vid vilken sjö?</text>
     <alternativett>storsjön</alternativett>
-    <alterntivtvå>sidsjön</alterntivtvå>
+    <alternativtvå>sidsjön</alternativtvå>
     <alternativtre>dalaälven</alternativtre>
     <svar>storsjön</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -47,9 +50,10 @@
     <nummer>5</nummer>
     <text>vad står bokstaven e för i e-post</text>
     <alternativett>erotisk</alternativett>
-    <alterntivtvå>exklusiv</alterntivtvå>
+    <alternativtvå>exklusiv</alternativtvå>
     <alternativtre>elektronisk</alternativtre>
     <svar>30 cm</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -57,7 +61,7 @@
     <nummer>6</nummer>
     <text>vem har lett allsång på skansen?</text>
     <alternativett>adolf hitler</alternativett>
-    <alterntivtvå>lasse berghagen</alterntivtvå>
+    <alternativtvå>lasse berghagen</alternativtvå>
     <alternativtre>petra marklund</alternativtre>
     <svar>lasse berghagen</svar>
     <svartvå>petra marklund</svartvå>
@@ -68,9 +72,10 @@
     <nummer>7</nummer>
     <text>vilken är sveriges största stad?</text>
     <alternativett>stöde</alternativett>
-    <alterntivtvå>liden</alterntivtvå>
+    <alternativtvå>liden</alternativtvå>
     <alternativtre>stockholm</alternativtre>
     <svar>stockholm</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -78,9 +83,10 @@
     <nummer>8</nummer>
     <text>hur många strängar har en gitarr?</text>
     <alternativett>4</alternativett>
-    <alterntivtvå>6</alterntivtvå>
+    <alternativtvå>6</alternativtvå>
     <alternativtre>12</alternativtre>
     <svar>6</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -88,7 +94,7 @@
     <nummer>1</nummer>
     <text>vilket/vilka av följande tal blir 5?</text>
     <alternativett>2,5 + 2,5</alternativett>
-    <alterntivtvå>100 - 95</alterntivtvå>
+    <alternativtvå>100 - 95</alternativtvå>
     <alternativtre>95 - 100</alternativtre>
     <svar>2,5 + 2,5</svar>
     <svartvå>100 - 95</svartvå>
@@ -99,9 +105,10 @@
     <nummer>2</nummer>
     <text>hur många bilar äger christian dahlgren?</text>
     <alternativett>1</alternativett>
-    <alterntivtvå>2</alterntivtvå>
+    <alternativtvå>2</alternativtvå>
     <alternativtre>3</alternativtre>
     <svar>2</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -109,9 +116,10 @@
     <nummer>3</nummer>
     <text>hur många liter vatten måste john berglund bära varannan dag?</text>
     <alternativett>16</alternativett>
-    <alterntivtvå>8</alterntivtvå>
+    <alternativtvå>8</alternativtvå>
     <alternativtre>1</alternativtre>
     <svar>16</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -119,9 +127,10 @@
     <nummer>4</nummer>
     <text>vem har räknat till oändligheten 2 gånger?</text>
     <alternativett>steven seagal</alternativett>
-    <alterntivtvå>jiohn berglund</alterntivtvå>
+    <alternativtvå>jiohn berglund</alternativtvå>
     <alternativtre>chuck norris</alternativtre>
     <svar>chuck norris</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -129,7 +138,7 @@
     <nummer>5</nummer>
     <text>hur många skivor följer med miles davis-boxen</text>
     <alternativett>22</alternativett>
-    <alterntivtvå>100</alterntivtvå>
+    <alternativtvå>100</alternativtvå>
     <alternativtre>101</alternativtre>
     <svar>100</svar>
     <svartvå>101</svartvå>
@@ -140,9 +149,10 @@
     <nummer>6</nummer>
     <text>vad blir 3 + 3 * 0 / 3?</text>
     <alternativett>1</alternativett>
-    <alterntivtvå>0</alterntivtvå>
+    <alternativtvå>0</alternativtvå>
     <alternativtre>9</alternativtre>
     <svar>1</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -150,9 +160,10 @@
     <nummer>7</nummer>
     <text>hur många gånger används ordet "fuck" i filmen "Wolf of wall street"?</text>
     <alternativett>257</alternativett>
-    <alterntivtvå>681</alterntivtvå>
+    <alternativtvå>681</alternativtvå>
     <alternativtre>569</alternativtre>
     <svar>569</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -160,7 +171,7 @@
     <nummer>8</nummer>
     <text>Hur många bultar finns det i ölandsbron?</text>
     <alternativett>ca 10000 bultar</alternativett>
-    <alterntivtvå>ca 20000 bultar</alterntivtvå>
+    <alternativtvå>ca 20000 bultar</alternativtvå>
     <alternativtre>7428954 bultar</alternativtre>
     <svar>ca 20000 bultar</svar>
     <svartvå>7428954 bultar</svartvå>
@@ -171,9 +182,10 @@
     <nummer>1</nummer>
     <text>varför bör man använda cykelhjälm?</text>
     <alternativett>för att skydde huvudet om man ramlar</alternativett>
-    <alterntivtvå>för att skydda andra om man ramlar</alterntivtvå>
+    <alternativtvå>för att skydda andra om man ramlar</alternativtvå>
     <alternativtre>för att skydda vägen om man ramlar</alternativtre>
     <svar>för att skydda huvudet om man ramlar</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -181,7 +193,7 @@
     <nummer>2</nummer>
     <text>varför ska man använda skyddsskor?</text>
     <alternativett>för att skydda fötterna</alternativett>
-    <alterntivtvå>för att undvika att ramla</alterntivtvå>
+    <alternativtvå>för att undvika att ramla</alternativtvå>
     <alternativtre>för att skydda andra saker</alternativtre>
     <svar>för att skydda fötterna</svar>
     <svartvå>för att undvika att ramla</svartvå>
@@ -192,9 +204,10 @@
     <nummer>3</nummer>
     <text>varför ska man använda reflekterande kläder?</text>
     <alternativett>för att det ser ballt ut</alternativett>
-    <alterntivtvå>för att du ska synas</alterntivtvå>
+    <alternativtvå>för att du ska synas</alternativtvå>
     <alternativtre>för att andra ska veta om att du har ett pissigt jobb</alternativtre>
     <svar>för att du ska synas</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -202,7 +215,7 @@
     <nummer>4</nummer>
     <text>varför behövs en säkerhet vid större lån?</text>
     <alternativett>för att banken ska kunna sno allt du äger</alternativett>
-    <alterntivtvå>för att banken ska våga låna ut pengar</alterntivtvå>
+    <alternativtvå>för att banken ska våga låna ut pengar</alternativtvå>
     <alternativtre>för att banken vill veta att du har tillgångar</alternativtre>
     <svar>för att banken vill veta att du har tillgångar</svar>
     <svartvå>för att banken ska våga låna ut pengar</svartvå>
@@ -213,9 +226,10 @@
     <nummer>5</nummer>
     <text>varför får anställda på banker inte installera virus på bankens dator?</text>
     <alternativett>för att då kan tjuvar stjäla pengar</alternativett>
-    <alterntivtvå>för att det tar upp massa värdefull plats på datorn</alterntivtvå>
+    <alternativtvå>för att det tar upp massa värdefull plats på datorn</alternativtvå>
     <alternativtre>för att datorn blir långsam</alternativtre>
     <svar>för att då kan tjuvar stjäla pengar</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -223,7 +237,7 @@
     <nummer>6</nummer>
     <text>är det smart att använda dubbdäck på vintern?</text>
     <alternativett>ja</alternativett>
-    <alterntivtvå>nej</alterntivtvå>
+    <alternativtvå>nej</alternativtvå>
     <alternativtre>bara om man bor norr om dala-älven</alternativtre>
     <svar>ja</svar>
     <svartvå>bara om man bor norr om dala-älven</svartvå>
@@ -234,9 +248,10 @@
     <nummer>7</nummer>
     <text>vart ska små barn sitta i en bil?</text>
     <alternativett>på taket</alternativett>
-    <alterntivtvå>i bagageluckan</alterntivtvå>
+    <alternativtvå>i bagageluckan</alternativtvå>
     <alternativtre>baklänges i en bilbarnstol</alternativtre>
     <svar>baklänges i en bilbarnstol</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -244,7 +259,7 @@
     <nummer>8</nummer>
     <text>vart ska man placera sina pengar?</text>
     <alternativett>i aktier</alternativett>
-    <alterntivtvå>i fonder</alterntivtvå>
+    <alternativtvå>i fonder</alternativtvå>
     <alternativtre>i madrassen</alternativtre>
     <svar>i aktier</svar>
     <svartvå>i fonder</svartvå>
@@ -255,10 +270,11 @@
     <nummer>9</nummer>
     <text>varför är det inte smart att spara sina pengar i madrassen?</text>
     <alternativett>lätt för tjuvar att stjälar</alternativett>
-    <alterntivtvå>ingen ränta</alterntivtvå>
+    <alternativtvå>ingen ränta</alternativtvå>
     <alternativtre>obekväm säng</alternativtre>
     <svar>lätt för tjuvar att stjälar</svar>
     <svar>ingen ränta</svar>
+    <svartvå></svartvå>
   </fråga>
 
 </frågor>

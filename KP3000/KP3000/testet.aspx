@@ -10,10 +10,10 @@
                 <div class="col-md-8">
 
                     <div class="well well-lg">
-
-                        Här börjar testet! 
-
+                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>                         
                     </div>
+
+
 
 
                 </div>
