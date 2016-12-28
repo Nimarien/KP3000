@@ -16,15 +16,23 @@
 
                                 
                                 <form class="radio" runat="server">
+                                    <div class="radiobuttons">
                                     <div>
                                       <asp:RadioButton ID="RadioButton1" runat="server" />  
-                                        </div>
+                                    </div>
                                     <div>
                                       <asp:RadioButton ID="RadioButton2" runat="server" />
-                                        </div>
+                                    </div>
                                     <div>
                                       <asp:RadioButton ID="RadioButton3" runat="server" /> 
-                                        </div>
+                                    </div>
+                                    </div>
+                                            <button type="button" class="btn btn-default">
+                                                <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span> Föregående
+                                            </button>
+                                            <button type="button" class="btn btn-default">
+                                                <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span> Nästa
+                                            </button>
                                 </form>
                             </div>
                                                
