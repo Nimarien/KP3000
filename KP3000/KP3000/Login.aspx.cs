@@ -11,9 +11,26 @@ namespace KP3000
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                
+            }
         }
 
+        protected void Loginknapp_Click(object sender, EventArgs e)
+        {
+            string anvNamn = användarnamn.Value;
+            string lsn = lösen.Value;
 
+            if (anvNamn == "test" && lsn == "test")
+            {
+                Response.Redirect("inloggad.aspx");
+            }
+            else
+            {
+
+            }
+
+        }
     }
 }
