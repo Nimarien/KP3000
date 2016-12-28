@@ -10,7 +10,24 @@
                 <div class="col-md-8">
 
                     <div class="well well-lg">
-                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>                         
+                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>  
+                            <div class="well well-lg">
+                                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+
+                                
+                                <form class="radio" runat="server">
+                                    <div>
+                                      <asp:RadioButton ID="RadioButton1" runat="server" />  
+                                        </div>
+                                    <div>
+                                      <asp:RadioButton ID="RadioButton2" runat="server" />
+                                        </div>
+                                    <div>
+                                      <asp:RadioButton ID="RadioButton3" runat="server" /> 
+                                        </div>
+                                </form>
+                            </div>
+                                               
                     </div>
 
 

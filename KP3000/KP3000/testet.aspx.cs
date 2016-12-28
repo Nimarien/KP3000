@@ -19,6 +19,11 @@ namespace KP3000
             {
                 LagraAllaFrågorLicensierad();
                 Label1.Text = AllaFrågorL[0].Del.ToString();
+                Label2.Text = AllaFrågorL[0].Text.ToString();
+                RadioButton1.Text = AllaFrågorL[0].Alternativ1.ToString();
+                RadioButton2.Text = AllaFrågorL[0].Alternativ2.ToString();
+                RadioButton3.Text = AllaFrågorL[0].Alternativ3.ToString();
+
             }
         }
 
