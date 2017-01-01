@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KP3000.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="KP3000.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Oinloggad.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="KP3000.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 

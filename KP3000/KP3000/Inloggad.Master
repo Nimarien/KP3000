@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Inloggad.Master.cs" Inherits="KP3000.MasterInloggad" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+            <link href="Content/bootstrap.css" rel="stylesheet" />
+            <script src="scripts/bootstrap.js"></script>
+            <script src="scripts/jquery-1.9.1.min.js"></script>
+            <script src="scripts/jquery-1.9.1.js"></script>
+            <script src="scripts/jquery-1.9.1.intellisense.js"></script>
+            <script src="scripts/ai.0.15.0-build58334.min.js"></script>
+            <script src="scripts/bootstrap.min.js"></script>
+            <script src="scripts/ai.0.15.0-build58334.js"></script>
+
+        <div class="navbar navbar-inverse navbar.default-fixed-top">
+             <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                 <a class="navbar-brand" runat="server" href="~/">JE-Bankens Kompetensportal </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/inloggad.aspx">Startsidan</a></li>
+                        <li><a runat="server" href="~/testet.aspx">Testet</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                    <li><a><span class="glyphicon glyphicon-user"></span>Inloggad som NAMN</a></li>
+                    <li><a href="~/Login.aspx" runat="server"><span class="glyphicon glyphicon-log-in"></span> Logga Ut</a></li>
+                    </ul>
+            </div>
+        </div>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+        
+        </asp:ContentPlaceHolder>
+
+        <footer>
+           <p>&copy; <%: DateTime.Now.Year %> <span class="glyphicon glyphicon-fire" aria-hidden="true"></span> John Berglund & Christian Dahlgren <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> </p>
+        </footer>
+</body></html>
