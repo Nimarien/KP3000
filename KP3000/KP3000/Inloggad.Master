@@ -28,7 +28,7 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-                 <a class="navbar-brand" runat="server" href="~/">JE-Bankens Kompetensportal </a>
+                 <a class="navbar-brand" runat="server" href="~/">JE-Bankens Kompetenserportal</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Xml;
 
@@ -18,11 +19,8 @@ namespace KP3000
             if (!IsPostBack)
             {
                 LagraAllaFrågorLicensierad();
-                Label1.Text = AllaFrågorL[0].Del.ToString();
-                Label2.Text = AllaFrågorL[0].Text.ToString();
-                RadioButton1.Text = AllaFrågorL[0].Alternativ1.ToString();
-                RadioButton2.Text = AllaFrågorL[0].Alternativ2.ToString();
-                RadioButton3.Text = AllaFrågorL[0].Alternativ3.ToString();
+                skapaFrågor();
+
 
             }
         }
@@ -72,6 +70,51 @@ namespace KP3000
                 AllaFrågorL.Add(Fråga);
             }
             return AllaFrågorL;
+        }
+
+        public void skapaFrågor()
+        {
+            foreach(frågor f in AllaFrågorL)
+            {
+                string html;
+
+                html = "<div class=\"panel-group\">";
+                html += "<form class=\"panel panel-default\" runat=\"server\">";
+                html += "<div class=\"panel-heading\">";
+                html += "<h4 class=\"panel-title\">";
+                html += "<a data-toggle=\"collapse\" href =\"#collapse1\" > Fråga 1: <asp:Label ID=\"Label2\" runat =\"server\" Text =\"Label\" ></asp:Label></a>";
+                html += "</h4>";
+                html += "</div>";
+                html += "<div id=\"collapse1\" class=\"panel -collapse collapse\" > ";
+                html += "<div style=\"padding-left: 20px;\" > ";
+                html += "<asp:RadioButton ID=\"RadioButton1\" runat =\"server\" GroupName =\"svar\" />";
+                html += "</div>";
+                html += "<div style=\"padding -left: 20px; \" > ";
+                html += "<asp:RadioButton ID=\"RadioButton2\" runat =\"server\" GroupName =\"svar\" />";
+                html += "</div>";
+                html += "<div style=\"padding -left: 20px; \" > ";
+                html += "<asp:RadioButton ID=\"RadioButton3\" runat =\"server\" GroupName =\"svar\" />";
+                html += "</div>";
+                html += "<button type=\"button\" class=\"btn btn-default\" > ";
+                html += "<span class=\"glyphicon glyphicon-step-backward\" aria -hidden=\"true\" ></span> Föregående";
+                html += "</button>";
+                html += "<button type=\"button\" class=\"btn btn-default\">";
+                html += "<span class=\"glyphicon glyphicon-step-forward\" aria-hidden=\"true\"></span> Nästa";
+                html += "</button>";
+                html += "<div class=\"panel -footer\" > ";
+                html += "<span class=\"label label-success\" > Rätt</span>";
+                html += "</div>";
+                html += "</div>";
+                html += "</form>";
+                html += "</div>";
+
+                Label1.Text = AllaFrågorL[0].Del.ToString();
+                Label2.Text = AllaFrågorL[0].Text.ToString();
+                RadioButton1.Text = AllaFrågorL[0].Alternativ1.ToString();
+                RadioButton2.Text = AllaFrågorL[0].Alternativ2.ToString();
+                RadioButton3.Text = AllaFrågorL[0].Alternativ3.ToString();
+
+            }
         }
     }
 }
