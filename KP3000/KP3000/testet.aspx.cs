@@ -11,6 +11,8 @@ namespace KP3000
 {
     public partial class testet : System.Web.UI.Page
     {
+
+        int counter = 0;
         List<frågor> AllaFrågorÅ = new List<frågor>();
         List<frågor> AllaFrågorL = new List<frågor>();
 
@@ -131,7 +133,7 @@ namespace KP3000
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
