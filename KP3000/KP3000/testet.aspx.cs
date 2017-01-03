@@ -14,6 +14,7 @@ namespace KP3000
         List<frågor> AllaFrågorÅ = new List<frågor>();
         List<frågor> AllaFrågorL = new List<frågor>();
 
+        //pageload
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,6 +26,7 @@ namespace KP3000
             }
         }
 
+        //ladda alla frågor vid Åku
         public List<frågor> LagraAllaFrågorÅku()
         {
             string vägen = Server.MapPath("ÅKU.xml");
@@ -108,6 +110,9 @@ namespace KP3000
                 html += "</form>";
                 html += "</div>";
 
+                //här borde kanske ett index-nummer på frågorna föras vidare i en metod??
+                //det borde passeras en variabel varje gång man trycker på knappen "nästa", som gör ett nytt indexnummer, sammtidigt som föregående fråga rättas.
+
                 Label1.Text = AllaFrågorL[0].Del.ToString();
                 Label2.Text = AllaFrågorL[0].Text.ToString();
                 RadioButton1.Text = AllaFrågorL[0].Alternativ1.ToString();
@@ -115,6 +120,18 @@ namespace KP3000
                 RadioButton3.Text = AllaFrågorL[0].Alternativ3.ToString();
 
             }
+        }
+
+
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -53,17 +53,14 @@
                                                 <asp:RadioButton ID="RadioButton3" runat="server" GroupName="svar" /> 
                                             </div>
 
-                                            <button type="button" class="btn btn-default">
-                                                <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span> Föregående
-                                            </button>
-                                            <button type="button" class="btn btn-default">
-                                                <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span> Nästa
-                                            </button>
+                                          <asp:Button ID="Button1" OnClick="Button1_Click1" CssClass="btn btn-default" runat="server" Text="föregående" />
+                                            
+                                          <asp:Button ID="Button2" OnClick="Button2_Click" CssClass="btn btn-default" runat="server" Text="nästa" />                                                                                     
 
                                         <div class="panel-footer">  
                                             <span class="label label-success">Rätt</span>
                                         </div>
-
+                                          
                                        </div>
                                     </form>
                                 </div>
