@@ -104,6 +104,8 @@
     <Content Include="scripts\jquery-1.9.1.min.map" />
     <Content Include="testet.aspx" />
     <Content Include="ÅKU.xml" />
+    <Content Include="Inloggad.Master" />
+    <Content Include="admin.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -142,9 +144,16 @@
     <Content Include="scripts\jquery-1.9.1.js" />
     <Content Include="scripts\jquery-1.9.1.min.js" />
     <Content Include="Web.config" />
-    <Content Include="KP3000.Master" />
+    <Content Include="Oinloggad.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin.Master.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.Master.designer.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+    </Compile>
     <Compile Include="användare.cs" />
     <Compile Include="frågor.cs" />
     <Compile Include="inloggad.aspx.cs">
@@ -161,13 +170,20 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="KP3000.Master.cs">
-      <DependentUpon>KP3000.Master</DependentUpon>
+    <Compile Include="Inloggad.Master.cs">
+      <DependentUpon>Inloggad.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="KP3000.Master.designer.cs">
-      <DependentUpon>KP3000.Master</DependentUpon>
+    <Compile Include="Inloggad.Master.designer.cs">
+      <DependentUpon>Inloggad.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Oinloggad.Master.cs">
+      <DependentUpon>Oinloggad.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Oinloggad.Master.designer.cs">
+      <DependentUpon>Oinloggad.Master</DependentUpon>
     </Compile>
     <Compile Include="testet.aspx.cs">
       <DependentUpon>testet.aspx</DependentUpon>

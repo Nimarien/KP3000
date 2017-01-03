@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/KP3000.Master" AutoEventWireup="true" CodeBehind="inloggad.aspx.cs" Inherits="KP3000.inloggad" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Inloggad.Master" AutoEventWireup="true" CodeBehind="inloggad.aspx.cs" Inherits="KP3000.inloggad" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
