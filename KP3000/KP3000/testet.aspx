@@ -39,7 +39,7 @@
                                           <a data-toggle="collapse" href="#collapse1">Fråga 1: <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></a>
                                         </h4>
                                       </div>
-                                      <div id="collapse1" class="panel-collapse collapse">
+                                      <div id="collapse1" class="panel">
                                           
                                             <div style="padding-left: 20px;">
                                                 <asp:RadioButton ID="RadioButton1" runat="server" GroupName="svar" />  
