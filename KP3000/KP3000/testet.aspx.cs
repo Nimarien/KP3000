@@ -3,29 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
 using System.Xml;
 
 namespace KP3000
 {
     public partial class testet : System.Web.UI.Page
     {
-
-        int counter = 0;
+        int räkna;
         List<frågor> AllaFrågorÅ = new List<frågor>();
         List<frågor> AllaFrågorL = new List<frågor>();
+        List<string> SvarL = new List<string>();
+        List<string> SvarÅ = new List<string>();
+
 
         //pageload
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+           if (!IsPostBack)
             {
-                LagraAllaFrågorLicensierad();
                 skapaFrågor();
-
-
+                Session["counter"] = 0;
             }
+
+            Button1.Enabled = true;
+            Button3.Enabled = false;
+
+            if  (Convert.ToInt32(Session["counter"]) == 0)
+            {
+                Button1.Enabled = false;
+            }
+            else if (Convert.ToInt32(Session["counter"]) == räkna)
+            {
+                Button2.Enabled = false;
+                Button3.Enabled = true;
+            }
+
+
         }
 
         //ladda alla frågor vid Åku
@@ -48,6 +61,7 @@ namespace KP3000
                 Fråga.Svar2 = nod["svartvå"].InnerText;
 
                 AllaFrågorÅ.Add(Fråga);
+                räkna++;
             }
             return AllaFrågorÅ;
         }
@@ -72,22 +86,34 @@ namespace KP3000
                 Fråga.Svar2 = nod["svartvå"].InnerText;
 
                 AllaFrågorL.Add(Fråga);
+                räkna++;
             }
             return AllaFrågorL;
         }
 
         public void skapaFrågor()
         {
-            foreach(frågor f in AllaFrågorL)
-            {
-               
-                Label1.Text = AllaFrågorL[0].Del.ToString();
-                Label2.Text = AllaFrågorL[0].Text.ToString();
-                RadioButton1.Text = AllaFrågorL[0].Alternativ1.ToString();
-                RadioButton2.Text = AllaFrågorL[0].Alternativ2.ToString();
-                RadioButton3.Text = AllaFrågorL[0].Alternativ3.ToString();
 
-            }
+                if ((string)Session["anställd"] == "test")
+                {
+                    LagraAllaFrågorLicensierad();
+
+                    Label1.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Del.ToString();
+                    Label2.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Text.ToString();
+                    RadioButton1.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Alternativ1.ToString();
+                    RadioButton2.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Alternativ2.ToString();
+                    RadioButton3.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Alternativ3.ToString();
+                }
+                else if ((string)Session["anställd"] == "fel")
+                {
+                    LagraAllaFrågorÅku();
+
+                    Label1.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Del.ToString();
+                    Label2.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Text.ToString();
+                    RadioButton1.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Alternativ1.ToString();
+                    RadioButton2.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Alternativ2.ToString();
+                    RadioButton3.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Alternativ3.ToString();
+                }
         }
 
 
@@ -95,11 +121,32 @@ namespace KP3000
         protected void Button1_Click1(object sender, EventArgs e)
         {
 
+            if(Convert.ToInt32(Session["counter"]) == 0)
+            {
+                //ska inte gå att backa när man redan är på 0
+            }
+            else
+            {
+                Session["counter"] = Convert.ToInt32(Session["counter"]) - 1;
+                skapaFrågor();
+
+            }
+
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            
+            Session["counter"] = Convert.ToInt32(Session["counter"]) + 1;
+
+            skapaFrågor();
+
+
+
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            //lämna in frågorna för rättning, visa alla frågor och svar, rätta svar och brickor med rätt/fel
         }
     }
 }

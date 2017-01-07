@@ -16,6 +16,6 @@ namespace KP3000
         public string Svar { get; set; }
         public string Svar2 { get; set; }
 
-        //koppling till databas
+        //ev koppling till databas?
     }
 }

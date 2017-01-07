@@ -12,5 +12,6 @@ namespace KP3000
         public bool Anställd { get; set; }
         public bool klaratTest { get; set; }
         public DateTime klaratSenast { get; set; }
+        public bool ärAdmin { get; set; }
     }
 }

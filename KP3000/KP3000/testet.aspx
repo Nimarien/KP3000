@@ -11,26 +11,11 @@
 
                     <div class="well well-lg">
                         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>  
-                                
-<%--                                <form class="radio" runat="server">
-                                    <div class="radiobuttons">
-                                    <div>
-                                      <asp:RadioButton ID="RadioButton1" runat="server" GroupName="svar" />  
-                                    </div>
-                                    <div>
-                                      <asp:RadioButton ID="RadioButton2" runat="server" GroupName="svar" />
-                                    </div>
-                                    <div>
-                                      <asp:RadioButton ID="RadioButton3" runat="server" GroupName="svar" /> 
-                                    </div>
-                                    </div>
-                                            <button type="button" class="btn btn-default">
-                                                <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span> Föregående
-                                            </button>
-                                            <button type="button" class="btn btn-default">
-                                                <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span> Nästa
-                                            </button>
-                                </form>--%>
+
+                        <div class="progress">
+                            <div id="progressbar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" runat="server" text="0%">
+                            </div>
+                        </div>
 
                                   <div class="panel-group">
                                     <form class="panel panel-default" runat="server">
@@ -53,12 +38,14 @@
                                                 <asp:RadioButton ID="RadioButton3" runat="server" GroupName="svar" /> 
                                             </div>
 
-                                          <asp:Button ID="Button1" OnClick="Button1_Click1" CssClass="btn btn-default" runat="server" Text="föregående" />
+                                          <asp:Button ID="Button1" OnClick="Button1_Click1" Enabled="false" CssClass="btn btn-default" runat="server" Text="föregående" Autopostback="true"/>
                                             
-                                          <asp:Button ID="Button2" OnClick="Button2_Click" CssClass="btn btn-default" runat="server" Text="nästa" />                                                                                     
+                                          <asp:Button ID="Button2" OnClick="Button2_Click" Enabled="true" CssClass="btn btn-default" runat="server" Text="nästa" Autopostback="true"/>                                                                                     
 
+                                          <asp:Button ID="Button3" OnClick="Button3_Click" Enabled="false" CssClass="btn btn-success" runat="server" Text="Lämna in och rätta!" Autopostback="true"/>                          
+                                      
                                         <div class="panel-footer">  
-                                            <span class="label label-success">Rätt</span>
+                                            
                                         </div>
                                           
                                        </div>
@@ -67,8 +54,7 @@
                             </div>
                                                
                     </div>
-
-        </div>
+  </div>
 
                 <div class="col-md-2"></div>
 
