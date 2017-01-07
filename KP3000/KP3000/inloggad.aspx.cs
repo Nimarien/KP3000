@@ -16,6 +16,8 @@ namespace KP3000
 
         protected void btnGörTest_Click(object sender, EventArgs e)
         {
+
+            Session["counter"] = 0;
             Response.Redirect("testet.aspx");
         }
     }

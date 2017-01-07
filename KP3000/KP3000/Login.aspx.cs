@@ -9,11 +9,15 @@ namespace KP3000
 {
     public partial class Login : System.Web.UI.Page
     {
+        List<användare> användarna = new List<användare>();
+
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                
+
             }
         }
 
@@ -22,13 +26,43 @@ namespace KP3000
             string anvNamn = användarnamn.Value;
             string lsn = lösen.Value;
 
+
             if (anvNamn == "test" && lsn == "test")
             {
+                användare nyanvändare = new användare();
+                nyanvändare.Namn = "Eskil Testsson";
+                nyanvändare.Användarnamn = "test";
+                nyanvändare.Anställd = true;
+
+                Session["anställd"] = "test";
                 Response.Redirect("inloggad.aspx");
+
+            }
+            else if (anvNamn == "fel" && lsn == "fel")
+            {
+                användare nyanvändare = new användare();
+                nyanvändare.Namn = "Felet Andersson";
+                nyanvändare.Användarnamn = "fel";
+                nyanvändare.Anställd = false;
+
+                Session["anställd"] = "fel";
+                Response.Redirect("inloggad.aspx");
+
+            }
+            else if (anvNamn == "admin" && lsn == "admin")
+            {
+                användare nyanvändare = new användare();
+                nyanvändare.Namn = "Admin Adminlund";
+                nyanvändare.Användarnamn = "admin";
+                nyanvändare.Anställd = true;
+                Response.Redirect("inloggad.aspx");
+                nyanvändare.ärAdmin = true;
+
+                Session["anställd"] = "admin";
             }
             else
             {
-
+                //här händer ingenting
             }
 
         }

@@ -27,7 +27,6 @@
                 <asp:Button class="btn-lg btn-primary btn-block" onclick="Loginknapp_Click" ID="Loginknapp" type="submit" runat="server" AutoPostBack="true" Text="Logga In" />
             </form>
                 
-
         
             <div class="row">
 
