@@ -91,6 +91,7 @@ namespace KP3000
             return AllaFrågorL;
         }
 
+        //skapar frågorna (somtyvärr töms vid varje postback)
         public void skapaFrågor()
         {
 
@@ -116,7 +117,107 @@ namespace KP3000
                 }
         }
 
+        //spara svaren
+        public void sparafråga(int a)
+        {
+            string svar = "inget";
+            //XmlDocument Frågorna = new XmlDocument();
+            
+            if ((string)Session["anställd"] == "test")
+            {
+                
+                if (RadioButton1.Checked)
+                {
+                    svar = RadioButton1.Text;
+                    //SvarL.Add(svar);
+                }
+                else if (RadioButton2.Checked)
+                {
+                    svar = RadioButton2.Text;
+                    //SvarL.Add(svar);
+                }
+                else if (RadioButton3.Checked)
+                {
+                    svar = RadioButton3.Text;
+                    //SvarL.Add(svar);
+                }
+                
+                string theroad = Server.MapPath("svarL.xml");
 
+                //XmlDocument dok = new XmlDocument();
+                //dok.Load(theroad);
+                //XmlNodeList nyttsvar = dok.SelectNodes("svaren");           
+                //XmlElement xmlnummer = dok.CreateElement("nummer");
+                //xmlnummer.InnerText = a.ToString();
+                //dok.DocumentElement.AppendChild(xmlnummer);
+                //XmlElement xmltext = dok.CreateElement("text");                
+                //xmltext.InnerText = svar;
+                //dok.DocumentElement.AppendChild(xmltext);
+
+                //XmlNode svaret = dok.CreateNode(XmlNodeType.Element, "svar", null);
+                //dok.DocumentElement.AppendChild(svaret);
+
+                //XmlWriterSettings settings = new XmlWriterSettings();
+                //settings.Indent = true;               
+                //XmlWriter writer = XmlWriter.Create(theroad, settings);
+                //dok.Save(writer);
+
+
+                //den här skiten skriver ju över eländet varje gång
+                XmlDocument xmlDoc = new XmlDocument();
+                XmlNode rootNode = xmlDoc.CreateElement("svaren");
+                xmlDoc.AppendChild(rootNode);
+
+                XmlNode userNode = xmlDoc.CreateElement("svar");
+                XmlAttribute attribute = xmlDoc.CreateAttribute("nummer");
+                attribute.Value = a.ToString();
+                userNode.Attributes.Append(attribute);
+                userNode.InnerText = svar;
+                rootNode.AppendChild(userNode);
+
+                
+                xmlDoc.Save(theroad);
+
+
+
+
+                //XmlWriter skrivare = null;
+                //skrivare = XmlWriter.Create(theroad);
+                ////skrivare ska stoppa in allt under svaren
+                //skrivare.WriteStartElement("svar");
+                //skrivare.WriteElementString("nummer", a.ToString());
+                //skrivare.WriteElementString("text", svar.ToString());
+                ////skrivare.Flush();
+                //skrivare.Close();
+            }
+            else if ((string)Session["anställd"] == "fel")
+            {
+                if (RadioButton1.Checked)
+                {
+                    svar = RadioButton1.Text;
+                    SvarÅ.Add(svar);
+                }
+                else if (RadioButton2.Checked)
+                {
+                    svar = RadioButton2.Text;
+                    SvarÅ.Add(svar);
+                }
+                else if (RadioButton3.Checked)
+                {
+                    svar = RadioButton3.Text;
+                    SvarÅ.Add(svar);
+                }
+                string theroad = Server.MapPath("svarL.xml");
+                XmlDocument dok = new XmlDocument();
+                dok.Load(theroad);
+                XmlNodeList nyttsvar = dok.SelectNodes("svaren");
+                XmlElement xmlnummer = dok.CreateElement("nummer");
+                XmlElement xmltext = dok.CreateElement("text");
+                xmlnummer.InnerText = a.ToString();
+                xmltext.InnerText = svar.ToString();
+                dok.Save("svarÅ.xml");
+            }                      
+        }
 
         protected void Button1_Click1(object sender, EventArgs e)
         {
@@ -136,12 +237,15 @@ namespace KP3000
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            int nummer = Convert.ToInt32(Session["counter"]);
+            //här ska svaret från föregående fråga sparar i en lista
+            sparafråga(nummer);
             Session["counter"] = Convert.ToInt32(Session["counter"]) + 1;
 
             skapaFrågor();
+            
 
-
-
+            
         }
 
         protected void Button3_Click(object sender, EventArgs e)

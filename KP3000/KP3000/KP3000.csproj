@@ -102,6 +102,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="scripts\jquery-1.9.1.min.map" />
+    <Content Include="svarL.xml" />
+    <Content Include="svarÅ.xml" />
     <Content Include="testet.aspx" />
     <Content Include="ÅKU.xml" />
     <Content Include="Inloggad.Master" />
