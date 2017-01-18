@@ -248,8 +248,7 @@ namespace KP3000
         protected void Button3_Click(object sender, EventArgs e)
         {
             //detta är svaren som står skrivna i xml-dokumentet
-            List<string> rättsvar = new List<string>();
-            //List<string> användarenssvar = new List<string>();
+            List<string> rättsvar = new List<string>();            
 
             //detta är svaren som användaren gett i testet
             List<string> licensieradesvar = (List<string>)Session["Lsvar"];
@@ -416,6 +415,8 @@ namespace KP3000
             Session["rättpådeltre"] = rättpådeltre;
 
             Response.Redirect("rättning.aspx");
+
+            //koppling till databas eller liknande så admin kan se mm
         }
     }
 }

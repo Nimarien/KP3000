@@ -20,7 +20,7 @@ namespace KP3000
             int rättpådeltvå = Convert.ToInt32(Session["rättpådeltvå"]);
             int rättpådeltre = Convert.ToInt32(Session["rättpådeltre"]);
 
-            Label1.Text = "Du fick totalt " + antalrätt + " på testet, och " + antalfel + " på testet.";
+            Label1.Text = "Du fick totalt " + antalrätt + " rätt på testet, och " + antalfel + " fel på testet.";
             rättandet(rättpådelett, rättpådeltvå, rättpådeltre);
         }
 
