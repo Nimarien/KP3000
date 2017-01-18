@@ -195,3 +195,4 @@ C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\Microsoft.CodeDom.Prov
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\obj\Debug\KP3000.csprojResolveAssemblyReference.cache
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\obj\Debug\KP3000.dll
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\obj\Debug\KP3000.pdb
+C:\Users\John\Source\Repos\KP4\KP3000\KP3000\obj\Debug\KP3000.csprojResolveAssemblyReference.cache
