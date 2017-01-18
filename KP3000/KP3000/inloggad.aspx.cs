@@ -24,6 +24,7 @@ namespace KP3000
             Session["rättpådelett"] = 0;
             Session["rättpådeltvå"] = 0;
             Session["rättpådeltre"] = 0;
+            
             Response.Redirect("testet.aspx");
         }
     }

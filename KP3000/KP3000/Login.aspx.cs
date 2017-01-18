@@ -12,6 +12,7 @@ namespace KP3000
         List<användare> användarna = new List<användare>();
         List<string> SvarL = new List<string>();
         List<string> SvarÅ = new List<string>();
+        List<frågor> felsvar = new List<frågor>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,6 +29,7 @@ namespace KP3000
             string lsn = lösen.Value;
             Session["Lsvar"] = SvarL;
             Session["Åsvar"] = SvarÅ;
+            Session["felsvar"] = felsvar;
 
 
             if (anvNamn == "test" && lsn == "test")

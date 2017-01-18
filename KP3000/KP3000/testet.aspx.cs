@@ -116,9 +116,9 @@ namespace KP3000
             {
                 Label1.Text = "Nu är testet klart";
                 Label2.Text = "Tryck på knappen rätta för att se dina svar";
-                RadioButton1.Text = "";
-                RadioButton2.Text = "";
-                RadioButton3.Text = "";
+                RadioButton1.Visible = false;
+                RadioButton2.Visible = false;
+                RadioButton3.Visible = false;
                 Button1.Enabled = false;
                 Button2.Enabled = false;
                 Button3.Enabled = true;
@@ -127,9 +127,9 @@ namespace KP3000
             {
                 Label1.Text = "Nu är testet klart";
                 Label2.Text = "Tryck på knappen rätta för att se dina svar";
-                RadioButton1.Text = "";
-                RadioButton2.Text = "";
-                RadioButton3.Text = "";
+                RadioButton1.Visible = false;
+                RadioButton2.Visible = false;
+                RadioButton3.Visible = false;
                 Button1.Enabled = false;
                 Button2.Enabled = false;
                 Button3.Enabled = true;
@@ -254,6 +254,8 @@ namespace KP3000
             List<string> licensieradesvar = (List<string>)Session["Lsvar"];
             List<string> åkusvar = (List<string>)Session["Åsvar"];
 
+            List<frågor> felsvar = (List<frågor>)Session["felsvar"];
+
             int rätt = 0;
             int fel = 0;
             int rättpådelett = 0;
@@ -274,6 +276,7 @@ namespace KP3000
                     frågor Fråga = new frågor();
                     Fråga.Svar = nod["svar"].InnerText;
                     Fråga.Svar2 = nod["svartvå"].InnerText;
+                    Fråga.Text = nod["text"].InnerText;
 
                     Fråga.Del = nod["del"].InnerText;
 
@@ -289,7 +292,7 @@ namespace KP3000
                     {
                         del = 3;
                     }
-                    string rättformat = del + "; " + nummer + "; " + Fråga.Svar + ", " + Fråga.Svar2;
+                    string rättformat = del + "; " + nummer + "; " + Fråga.Svar + ", " + Fråga.Svar2 + ": " + Fråga.Text;
                     rättsvar.Add(rättformat);
                     nummer++;
                 }
@@ -305,9 +308,12 @@ namespace KP3000
                     //delar upp svaret så att det går att använda
                     string[] splittad = rättsvar[nyttnummer].Split(';');
                     string[] detkorrektasvaret = splittad[2].Split(',');
+                    
 
                     //här vill jag plocka ut bara strängen, och spara delnumret i en ny sträng.
                     string[] delen = detsomsvarats.Split(';');
+
+                    string[] frågan = rättsvar[nyttnummer].Split(':');
 
                     if (delen[2] == detkorrektasvaret[0] || delen[2] == detkorrektasvaret[1])
                     {
@@ -328,10 +334,27 @@ namespace KP3000
                     }
                     else if (delen[2] != detkorrektasvaret[0] || delen[2] != detkorrektasvaret[1])
                     {                        
+                        
+                        //här ska det felaktiga svaret lagras i nåt så att användaren kan läsa vad som är fel på rättningssidan
+                        frågor nyttfelsvar = new frågor();
+                        nyttfelsvar.Text = frågan[1];
+                        nyttfelsvar.användarsvar = delen[2];
+                        nyttfelsvar.Svar = detkorrektasvaret[0];
+
+                        if (detkorrektasvaret[1] != null)
+                        {
+                            nyttfelsvar.Svar2 = detkorrektasvaret[1];
+                        }
+                        else if (detkorrektasvaret[1] ==  nyttfelsvar.Text)
+                        {
+                            nyttfelsvar.Svar2 = "";
+                        }
+                        
+
+                        felsvar.Add(nyttfelsvar);
+
                         fel++;
                         nyttnummer++;
-
-                        //här ska det felaktiga svaret lagras i nåt så att användaren kan läsa vad som är fel på rättningssidan
                     }
                 }                
             }

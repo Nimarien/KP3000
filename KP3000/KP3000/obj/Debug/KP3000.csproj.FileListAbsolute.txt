@@ -162,6 +162,7 @@ C:\Users\John\Source\Repos\KP4\KP3000\KP3000\bin\Microsoft.ApplicationInsights.x
 C:\Users\John\Source\Repos\KP4\KP3000\KP3000\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\John\Source\Repos\KP4\KP3000\KP3000\obj\Debug\KP3000.dll
 C:\Users\John\Source\Repos\KP4\KP3000\KP3000\obj\Debug\KP3000.pdb
+C:\Users\John\Source\Repos\KP4\KP3000\KP3000\obj\Debug\KP3000.csprojResolveAssemblyReference.cache
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\ApplicationInsights.config
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\roslyn\csc.exe
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -186,13 +187,12 @@ C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\Microsoft.AI.Web.dll
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\Microsoft.AI.WindowsServer.dll
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\Microsoft.ApplicationInsights.dll
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\Microsoft.AI.Web.xml
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\Microsoft.ApplicationInsights.xml
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\obj\Debug\KP3000.csprojResolveAssemblyReference.cache
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\obj\Debug\KP3000.dll
 C:\Users\christian\Source\Repos\KP30009\KP3000\KP3000\obj\Debug\KP3000.pdb
-C:\Users\John\Source\Repos\KP4\KP3000\KP3000\obj\Debug\KP3000.csprojResolveAssemblyReference.cache

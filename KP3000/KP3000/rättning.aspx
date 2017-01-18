@@ -20,7 +20,13 @@
                         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                         
                             <div>
-                                <asp:GridView ID="Gridden" DataKeyNames="" runat="server"></asp:GridView>
+                                <asp:GridView ID="Gridden" DataKeyNames="Del, procent, godkänd" runat="server"></asp:GridView>
+                            </div>
+
+                            <asp:Label ID="Label2" runat="server" Text="här är frågorna som du klantade till det på;"></asp:Label>
+
+                            <div>
+                                <asp:GridView ID="Gridden2" DataKeyNames="fråga, ditt svar, rätt svar" runat="server"></asp:GridView>
                             </div>
                         </form>
                     </div>

@@ -10,7 +10,7 @@ namespace KP3000
 {
     public partial class rättning : System.Web.UI.Page
     {
-        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,16 +19,23 @@ namespace KP3000
             int rättpådelett = Convert.ToInt32(Session["rättpådelett"]);
             int rättpådeltvå = Convert.ToInt32(Session["rättpådeltvå"]);
             int rättpådeltre = Convert.ToInt32(Session["rättpådeltre"]);
+            double procentett;
+            double proenttvå;
+            double procenttre;
 
             Label1.Text = "Du fick totalt " + antalrätt + " rätt på testet, och " + antalfel + " fel på testet.";
-            rättandet(rättpådelett, rättpådeltvå, rättpådeltre);
+            rättandet(rättpådelett, rättpådeltvå, rättpådeltre, out procentett, out proenttvå, out procenttre);
+            gridd1(procentett, proenttvå, procenttre);
+            gridd2();
         }
 
-        public void rättandet(int a, int b, int c) 
+        public void rättandet(int a, int b, int c, out double d, out double e, out double f)
         {
             int delett = 0;
             int deltvå = 0;
             int deltre = 0;
+
+
 
             if ((string)Session["anställd"] == "test")
             {
@@ -89,7 +96,78 @@ namespace KP3000
             double procenttvå = två * max;
             double tre = cb / deltre;
             double procenttre = tre * max;
+
+            d = procentett;
+            e = procenttvå;
+            f = procenttre;
         }
-        
+
+        //griddview1
+        public void gridd1   (double d, double e, double f)
+        {
+            List<gridwiev1> hubbabubba = new List<gridwiev1>();
+
+            string delett = "Produkter och hantering av kundens affärer";
+            string deltvå = "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi";
+            string deltre = "Etik och regelverk";
+          
+            gridwiev1 nydel1 = new gridwiev1();
+
+            nydel1.del = delett;
+            nydel1.procent = Math.Round(d, 2);
+            if (d >= 60)
+            {                
+                nydel1.godkänd = "ja";
+            }
+            else if (d < 60)
+            {
+                nydel1.godkänd = "nej";
+            }
+            hubbabubba.Add(nydel1);
+
+
+            gridwiev1 nydel2 = new gridwiev1();
+
+            nydel2.del = deltvå;
+            nydel2.procent = Math.Round(e, 2);
+            if (e >= 60)
+            {
+                nydel2.godkänd = "ja";
+            }
+            else if (e < 60)
+            {
+                nydel2.godkänd = "nej";
+            }
+            
+            hubbabubba.Add(nydel2);
+
+
+            gridwiev1 nydel3 = new gridwiev1();
+
+            nydel3.del = deltre;
+            nydel3.procent = Math.Round(f, 2);
+            if (f >= 60)
+            {
+                nydel3.godkänd = "ja";
+            }
+            else if (f < 60)
+            {
+                nydel3.godkänd = "nej";
+            }
+            hubbabubba.Add(nydel3);
+
+
+            Gridden.DataSource = hubbabubba;
+            Gridden.DataBind();
+        }
+
+        //griddview2
+        public void gridd2 ()
+        {
+            List<frågor> felsvar = (List<frågor>)Session["felsvar"];
+
+            Gridden2.DataSource = felsvar;
+            Gridden2.DataBind();
+        }
     }
 }
