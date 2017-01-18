@@ -18,6 +18,12 @@ namespace KP3000
         {
 
             Session["counter"] = 0;
+            Session["rätt"] = 0;
+            Session["fel"] = 0;
+            Session["del"] = 0;
+            Session["rättpådelett"] = 0;
+            Session["rättpådeltvå"] = 0;
+            Session["rättpådeltre"] = 0;
             Response.Redirect("testet.aspx");
         }
     }

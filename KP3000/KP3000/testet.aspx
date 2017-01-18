@@ -21,7 +21,7 @@
                                     <form class="panel panel-default" runat="server">
                                       <div class="panel-heading">
                                         <h4 class="panel-title">
-                                          <a data-toggle="collapse" href="#collapse1">Fråga 1: <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></a>
+                                          <a data-toggle="collapse" href="#collapse1">Fråga:  <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></a>
                                         </h4>
                                       </div>
                                       <div id="collapse1" class="panel">

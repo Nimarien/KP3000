@@ -12,19 +12,16 @@ namespace KP3000
         int räkna;
         List<frågor> AllaFrågorÅ = new List<frågor>();
         List<frågor> AllaFrågorL = new List<frågor>();
-        List<string> SvarL = new List<string>();
-        List<string> SvarÅ = new List<string>();
-
 
         //pageload
         protected void Page_Load(object sender, EventArgs e)
-        {
-           if (!IsPostBack)
+        {            
+
+            if (!IsPostBack)
             {
                 skapaFrågor();
                 Session["counter"] = 0;
             }
-
             Button1.Enabled = true;
             Button3.Enabled = false;
 
@@ -37,8 +34,6 @@ namespace KP3000
                 Button2.Enabled = false;
                 Button3.Enabled = true;
             }
-
-
         }
 
         //ladda alla frågor vid Åku
@@ -66,7 +61,7 @@ namespace KP3000
             return AllaFrågorÅ;
         }
 
-        //ladda in alla frågor vid licensiering
+        //ladda alla frågor vid licensiering
         public List<frågor> LagraAllaFrågorLicensierad()
         {
             string vägen = Server.MapPath("Licenstest.xml");
@@ -94,134 +89,103 @@ namespace KP3000
         //skapar frågorna (somtyvärr töms vid varje postback)
         public void skapaFrågor()
         {
+            int nummer = Convert.ToInt32(Session["counter"]);
+            nummer++;
 
-                if ((string)Session["anställd"] == "test")
-                {
-                    LagraAllaFrågorLicensierad();
+            if ((string)Session["anställd"] == "test" && nummer <= 25)
+            {
+                LagraAllaFrågorLicensierad();
 
-                    Label1.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Del.ToString();
-                    Label2.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Text.ToString();
-                    RadioButton1.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Alternativ1.ToString();
-                    RadioButton2.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Alternativ2.ToString();
-                    RadioButton3.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Alternativ3.ToString();
-                }
-                else if ((string)Session["anställd"] == "fel")
-                {
-                    LagraAllaFrågorÅku();
+                Label1.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Del.ToString();
+                Label2.Text = " " + nummer + " " + AllaFrågorL[Convert.ToInt32(Session["counter"])].Text.ToString();
+                RadioButton1.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Alternativ1.ToString();
+                RadioButton2.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Alternativ2.ToString();
+                RadioButton3.Text = AllaFrågorL[Convert.ToInt32(Session["counter"])].Alternativ3.ToString();                
+            }
+            else if ((string)Session["anställd"] == "fel" && nummer <= 15)
+            {
+                LagraAllaFrågorÅku();
 
-                    Label1.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Del.ToString();
-                    Label2.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Text.ToString();
-                    RadioButton1.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Alternativ1.ToString();
-                    RadioButton2.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Alternativ2.ToString();
-                    RadioButton3.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Alternativ3.ToString();
-                }
+                Label1.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Del.ToString();
+                Label2.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Text.ToString();
+                RadioButton1.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Alternativ1.ToString();
+                RadioButton2.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Alternativ2.ToString();
+                RadioButton3.Text = AllaFrågorÅ[Convert.ToInt32(Session["counter"])].Alternativ3.ToString();                
+            }
+            else if ((string)Session["anställd"] == "test" && nummer == 26)
+            {
+                Label1.Text = "Nu är testet klart";
+                Label2.Text = "Tryck på knappen rätta för att se dina svar";
+                RadioButton1.Text = "";
+                RadioButton2.Text = "";
+                RadioButton3.Text = "";
+                Button1.Enabled = false;
+                Button2.Enabled = false;
+                Button3.Enabled = true;
+            }
+            else if ((string)Session["anställd"] == "fel" && nummer == 16)
+            {
+                Label1.Text = "Nu är testet klart";
+                Label2.Text = "Tryck på knappen rätta för att se dina svar";
+                RadioButton1.Text = "";
+                RadioButton2.Text = "";
+                RadioButton3.Text = "";
+                Button1.Enabled = false;
+                Button2.Enabled = false;
+                Button3.Enabled = true;
+            }
         }
 
         //spara svaren
-        public void sparafråga(int a)
+        public void sparafråga(int a, out string b)
         {
-            string svar = "inget";
-            //XmlDocument Frågorna = new XmlDocument();
-            
+            string nummerochtext = "inget";
+            string texten = "inget";
+                                    
             if ((string)Session["anställd"] == "test")
-            {
-                
+            {                
                 if (RadioButton1.Checked)
                 {
-                    svar = RadioButton1.Text;
-                    //SvarL.Add(svar);
+                    texten = RadioButton1.Text;
+
                 }
                 else if (RadioButton2.Checked)
                 {
-                    svar = RadioButton2.Text;
-                    //SvarL.Add(svar);
+                    texten = RadioButton2.Text;
                 }
                 else if (RadioButton3.Checked)
                 {
-                    svar = RadioButton3.Text;
-                    //SvarL.Add(svar);
+                    texten = RadioButton3.Text;
                 }
-                
-                string theroad = Server.MapPath("svarL.xml");
+                                
+                nummerochtext = a.ToString() + "; " + texten;
 
-                //XmlDocument dok = new XmlDocument();
-                //dok.Load(theroad);
-                //XmlNodeList nyttsvar = dok.SelectNodes("svaren");           
-                //XmlElement xmlnummer = dok.CreateElement("nummer");
-                //xmlnummer.InnerText = a.ToString();
-                //dok.DocumentElement.AppendChild(xmlnummer);
-                //XmlElement xmltext = dok.CreateElement("text");                
-                //xmltext.InnerText = svar;
-                //dok.DocumentElement.AppendChild(xmltext);
-
-                //XmlNode svaret = dok.CreateNode(XmlNodeType.Element, "svar", null);
-                //dok.DocumentElement.AppendChild(svaret);
-
-                //XmlWriterSettings settings = new XmlWriterSettings();
-                //settings.Indent = true;               
-                //XmlWriter writer = XmlWriter.Create(theroad, settings);
-                //dok.Save(writer);
-
-
-                //den här skiten skriver ju över eländet varje gång
-                XmlDocument xmlDoc = new XmlDocument();
-                XmlNode rootNode = xmlDoc.CreateElement("svaren");
-                xmlDoc.AppendChild(rootNode);
-
-                XmlNode userNode = xmlDoc.CreateElement("svar");
-                XmlAttribute attribute = xmlDoc.CreateAttribute("nummer");
-                attribute.Value = a.ToString();
-                userNode.Attributes.Append(attribute);
-                userNode.InnerText = svar;
-                rootNode.AppendChild(userNode);
-
-                
-                xmlDoc.Save(theroad);
-
-
-
-
-                //XmlWriter skrivare = null;
-                //skrivare = XmlWriter.Create(theroad);
-                ////skrivare ska stoppa in allt under svaren
-                //skrivare.WriteStartElement("svar");
-                //skrivare.WriteElementString("nummer", a.ToString());
-                //skrivare.WriteElementString("text", svar.ToString());
-                ////skrivare.Flush();
-                //skrivare.Close();
             }
             else if ((string)Session["anställd"] == "fel")
             {
                 if (RadioButton1.Checked)
                 {
-                    svar = RadioButton1.Text;
-                    SvarÅ.Add(svar);
+                    texten = RadioButton1.Text;
+                    
                 }
                 else if (RadioButton2.Checked)
                 {
-                    svar = RadioButton2.Text;
-                    SvarÅ.Add(svar);
+                    texten = RadioButton2.Text;
+                    
                 }
                 else if (RadioButton3.Checked)
                 {
-                    svar = RadioButton3.Text;
-                    SvarÅ.Add(svar);
+                    texten = RadioButton3.Text;                    
                 }
-                string theroad = Server.MapPath("svarL.xml");
-                XmlDocument dok = new XmlDocument();
-                dok.Load(theroad);
-                XmlNodeList nyttsvar = dok.SelectNodes("svaren");
-                XmlElement xmlnummer = dok.CreateElement("nummer");
-                XmlElement xmltext = dok.CreateElement("text");
-                xmlnummer.InnerText = a.ToString();
-                xmltext.InnerText = svar.ToString();
-                dok.Save("svarÅ.xml");
-            }                      
+                nummerochtext = a.ToString() + "; " + texten;
+                
+            }            
+            b = nummerochtext;
         }
 
+        //föregående fråga
         protected void Button1_Click1(object sender, EventArgs e)
         {
-
             if(Convert.ToInt32(Session["counter"]) == 0)
             {
                 //ska inte gå att backa när man redan är på 0
@@ -230,27 +194,228 @@ namespace KP3000
             {
                 Session["counter"] = Convert.ToInt32(Session["counter"]) - 1;
                 skapaFrågor();
-
             }
-
         }
 
+        //nästa fråga
         protected void Button2_Click(object sender, EventArgs e)
-        {
+        {            
+
+            List<string> licensieradesvar = (List<string>)Session["Lsvar"];
+            List<string> åkusvar = (List<string>)Session["Åsvar"];            
+
             int nummer = Convert.ToInt32(Session["counter"]);
-            //här ska svaret från föregående fråga sparar i en lista
-            sparafråga(nummer);
+
+            //hela svaret är q
+            string q = "";
+
+            //gör så att delen följer med i svaret också
+            int delen = 0;
+
+            if (Label1.Text == "Produkter och hantering av kundens affärer")
+            {
+                delen = 1;
+            }
+            else if (Label1.Text == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+            {
+                delen = 2;
+            }
+            else if (Label1.Text == "Etik och regelverk")
+            {
+                delen = 3;
+            }
+            
+            sparafråga(nummer, out q);
+
+            string a = delen + "; " + q;
+
+            if ((string)Session["anställd"] == "test")
+            {
+                licensieradesvar.Add(a);
+            }
+            else if ((string)Session["anställd"] == "fel")
+            {
+                åkusvar.Add(a);
+            }
+                                        
             Session["counter"] = Convert.ToInt32(Session["counter"]) + 1;
 
             skapaFrågor();
-            
-
-            
+                        
         }
 
+        //rättning
         protected void Button3_Click(object sender, EventArgs e)
         {
-            //lämna in frågorna för rättning, visa alla frågor och svar, rätta svar och brickor med rätt/fel
+            //detta är svaren som står skrivna i xml-dokumentet
+            List<string> rättsvar = new List<string>();
+            //List<string> användarenssvar = new List<string>();
+
+            //detta är svaren som användaren gett i testet
+            List<string> licensieradesvar = (List<string>)Session["Lsvar"];
+            List<string> åkusvar = (List<string>)Session["Åsvar"];
+
+            int rätt = 0;
+            int fel = 0;
+            int rättpådelett = 0;
+            int rättpådeltvå = 0;
+            int rättpådeltre = 0;
+
+            int nummer = 0;
+            int del = 0;
+                   
+            if ((string)Session["anställd"] == "test")
+            {
+                string vägen = Server.MapPath("Licenstest.xml");
+                XmlDocument Frågorna = new XmlDocument();
+                Frågorna.Load(vägen);
+                XmlNodeList Frågedetaljer = Frågorna.SelectNodes("frågor/fråga");
+                foreach (XmlNode nod in Frågedetaljer)
+                {
+                    frågor Fråga = new frågor();
+                    Fråga.Svar = nod["svar"].InnerText;
+                    Fråga.Svar2 = nod["svartvå"].InnerText;
+
+                    Fråga.Del = nod["del"].InnerText;
+
+                    if (Fråga.Del == "Produkter och hantering av kundens affärer")
+                    {
+                        del = 1;
+                    }
+                    else if (Fråga.Del == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+                    {
+                        del = 2;
+                    }
+                    else if (Fråga.Del == "Etik och regelverk")
+                    {
+                        del = 3;
+                    }
+                    string rättformat = del + "; " + nummer + "; " + Fråga.Svar + ", " + Fråga.Svar2;
+                    rättsvar.Add(rättformat);
+                    nummer++;
+                }
+
+                //här kollas varje svar vid licensieringstestet
+                int nyttnummer = 0;
+                                
+                foreach (string item in licensieradesvar)
+                {
+                    //här plockas strängen som hör till frågan, nyttnummer är indexnumret
+                    string detsomsvarats = licensieradesvar[nyttnummer].ToString();                    
+
+                    //delar upp svaret så att det går att använda
+                    string[] splittad = rättsvar[nyttnummer].Split(';');
+                    string[] detkorrektasvaret = splittad[2].Split(',');
+
+                    //här vill jag plocka ut bara strängen, och spara delnumret i en ny sträng.
+                    string[] delen = detsomsvarats.Split(';');
+
+                    if (delen[2] == detkorrektasvaret[0] || delen[2] == detkorrektasvaret[1])
+                    {
+                        if (delen[0] == "1")
+                        {
+                            rättpådelett++;
+                        }
+                        else if (delen[0] == "2")
+                        {
+                            rättpådeltvå++;
+                        }
+                        else if (delen[0] == "3")
+                        {
+                            rättpådeltre++;
+                        }
+                        rätt++;
+                        nyttnummer++;
+                    }
+                    else if (delen[2] != detkorrektasvaret[0] || delen[2] != detkorrektasvaret[1])
+                    {                        
+                        fel++;
+                        nyttnummer++;
+
+                        //här ska det felaktiga svaret lagras i nåt så att användaren kan läsa vad som är fel på rättningssidan
+                    }
+                }                
+            }
+
+            else if ((string)Session["anställd"] == "fel")
+            {
+                string vägen = Server.MapPath("ÅKU.xml");
+                XmlDocument Frågorna = new XmlDocument();
+                Frågorna.Load(vägen);
+                XmlNodeList Frågedetaljer = Frågorna.SelectNodes("frågor/fråga");
+                foreach (XmlNode nod in Frågedetaljer)
+                {
+                    frågor Fråga = new frågor();
+                    Fråga.Svar = nod["svar"].InnerText;
+                    Fråga.Svar2 = nod["svartvå"].InnerText;
+
+                    Fråga.Del = nod["del"].InnerText;
+
+                    if (Fråga.Del == "Produkter och hantering av kundens affärer")
+                    {
+                        del = 1;
+                    }
+                    else if (Fråga.Del == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+                    {
+                        del = 2;
+                    }
+                    else if (Fråga.Del == "Etik och regelverk")
+                    {
+                        del = 3;
+                    }
+
+                    string rättformat = nummer + "; " + del + "; " + Fråga.Svar + ", " + Fråga.Svar2;
+                    rättsvar.Add(rättformat);
+                    nummer++;
+                }
+
+                //här kollas svaren vid åku-testet
+                int nyttnummer = 0;
+
+                foreach (string item in åkusvar)
+                {
+                    
+                    string detsomsvarats = åkusvar[nyttnummer].ToString();
+
+                    //delar upp svaret så att det går att använda
+                    string[] splittad = rättsvar[nyttnummer].Split(';');
+                    string[] detkorrektasvaret = splittad[2].Split(',');
+
+                    //här vill jag plocka ut bara strängen, och spara delnumret i en ny sträng.
+                    string[] delen = detsomsvarats.Split(';');
+
+                    if (delen[2] == detkorrektasvaret[0] || delen[2] == detkorrektasvaret[1])
+                    {
+                        if (delen[0] == "1")
+                        {
+                            rättpådelett++;
+                        }
+                        else if (delen[0] == "2")
+                        {
+                            rättpådeltvå++;
+                        }
+                        else if (delen[0] == "3")
+                        {
+                            rättpådeltre++;
+                        }
+                        rätt++;
+                        nyttnummer++;
+                    }
+                    else if (delen[2] != detkorrektasvaret[0] || delen[2] != detkorrektasvaret[1])
+                    {
+                        fel++;
+                        nyttnummer++;
+                    }                   
+                }
+            }
+
+            Session["rätt"] = rätt;
+            Session["fel"] = fel;
+            Session["rättpådelett"] = rättpådelett;
+            Session["rättpådeltvå"] = rättpådeltvå;
+            Session["rättpådeltre"] = rättpådeltre;
+
+            Response.Redirect("rättning.aspx");
         }
     }
 }

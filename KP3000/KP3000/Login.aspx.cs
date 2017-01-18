@@ -10,8 +10,8 @@ namespace KP3000
     public partial class Login : System.Web.UI.Page
     {
         List<användare> användarna = new List<användare>();
-
-
+        List<string> SvarL = new List<string>();
+        List<string> SvarÅ = new List<string>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,12 +19,15 @@ namespace KP3000
             {
 
             }
+            
         }
 
         protected void Loginknapp_Click(object sender, EventArgs e)
         {
             string anvNamn = användarnamn.Value;
             string lsn = lösen.Value;
+            Session["Lsvar"] = SvarL;
+            Session["Åsvar"] = SvarÅ;
 
 
             if (anvNamn == "test" && lsn == "test")

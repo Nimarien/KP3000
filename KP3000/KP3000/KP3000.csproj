@@ -101,9 +101,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="rättning.aspx" />
     <Content Include="scripts\jquery-1.9.1.min.map" />
-    <Content Include="svarL.xml" />
-    <Content Include="svarÅ.xml" />
     <Content Include="testet.aspx" />
     <Content Include="ÅKU.xml" />
     <Content Include="Inloggad.Master" />
@@ -186,6 +185,13 @@
     </Compile>
     <Compile Include="Oinloggad.Master.designer.cs">
       <DependentUpon>Oinloggad.Master</DependentUpon>
+    </Compile>
+    <Compile Include="rättning.aspx.cs">
+      <DependentUpon>rättning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rättning.aspx.designer.cs">
+      <DependentUpon>rättning.aspx</DependentUpon>
     </Compile>
     <Compile Include="testet.aspx.cs">
       <DependentUpon>testet.aspx</DependentUpon>
