@@ -103,15 +103,15 @@ namespace KP3000
         }
 
         //griddview1
-        public void gridd1   (double d, double e, double f)
+        public void gridd1 (double d, double e, double f)
         {
-            List<gridwiev1> hubbabubba = new List<gridwiev1>();
+            List<gridview1> hubbabubba = new List<gridview1>();
 
             string delett = "Produkter och hantering av kundens affärer";
             string deltvå = "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi";
             string deltre = "Etik och regelverk";
           
-            gridwiev1 nydel1 = new gridwiev1();
+            gridview1 nydel1 = new gridview1();
 
             nydel1.del = delett;
             nydel1.procent = Math.Round(d, 2);
@@ -125,8 +125,7 @@ namespace KP3000
             }
             hubbabubba.Add(nydel1);
 
-
-            gridwiev1 nydel2 = new gridwiev1();
+            gridview1 nydel2 = new gridview1();
 
             nydel2.del = deltvå;
             nydel2.procent = Math.Round(e, 2);
@@ -142,7 +141,7 @@ namespace KP3000
             hubbabubba.Add(nydel2);
 
 
-            gridwiev1 nydel3 = new gridwiev1();
+            gridview1 nydel3 = new gridview1();
 
             nydel3.del = deltre;
             nydel3.procent = Math.Round(f, 2);
@@ -156,7 +155,6 @@ namespace KP3000
             }
             hubbabubba.Add(nydel3);
 
-
             Gridden.DataSource = hubbabubba;
             Gridden.DataBind();
         }
@@ -166,8 +164,14 @@ namespace KP3000
         {
             List<frågor> felsvar = (List<frågor>)Session["felsvar"];
 
-            Gridden2.DataSource = felsvar;
+            var resultat = from frågor in felsvar select new { frågor.Text, frågor.användarsvar, frågor.Svar, frågor.Svar2 };
+            //felsvar.Where(frågor => frågor.Text != null && frågor.användarsvar != null && frågor.Svar != null && frågor.Svar2 != null);
+
+
+            Gridden2.DataSource = resultat.ToList();
             Gridden2.DataBind();
+
+
         }
     }
 }
