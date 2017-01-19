@@ -13,5 +13,20 @@ namespace KP3000
         public bool klaratTest { get; set; }
         public DateTime klaratSenast { get; set; }
         public bool ärAdmin { get; set; }
+
+
+        public override string ToString()
+        {
+            if (ärAdmin == true)
+            {
+                return Namn + "(Admin)";
+            }
+            else
+
+            return Namn + "(Anställd)";
+
+        }
+
     }
+    
 }

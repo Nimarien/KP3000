@@ -40,6 +40,7 @@ namespace KP3000
                 nyanvändare.Anställd = true;
 
                 Session["anställd"] = "test";
+                Session["användare"] = nyanvändare;
                 Response.Redirect("inloggad.aspx");
 
             }
@@ -60,10 +61,10 @@ namespace KP3000
                 nyanvändare.Namn = "Admin Adminlund";
                 nyanvändare.Användarnamn = "admin";
                 nyanvändare.Anställd = true;
-                Response.Redirect("inloggad.aspx");
                 nyanvändare.ärAdmin = true;
 
                 Session["anställd"] = "admin";
+                Response.Redirect("admin.aspx");
             }
             else
             {
