@@ -158,7 +158,7 @@
     </Compile>
     <Compile Include="användare.cs" />
     <Compile Include="frågor.cs" />
-    <Compile Include="gridwiev1 .cs" />
+    <Compile Include="gridview1.cs" />
     <Compile Include="inloggad.aspx.cs">
       <DependentUpon>inloggad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

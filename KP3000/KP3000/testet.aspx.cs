@@ -307,9 +307,13 @@ namespace KP3000
 
                     //delar upp svaret så att det går att använda
                     string[] splittad = rättsvar[nyttnummer].Split(';');
-                    string[] detkorrektasvaret = splittad[2].Split(',');
-                    
 
+                    
+                    string[] detkorrektasvaret = splittad[2].Split(',');
+                    if(detkorrektasvaret[1].StartsWith(" :") == true)
+                    {
+                        detkorrektasvaret[1] = "";
+                    }
                     //här vill jag plocka ut bara strängen, och spara delnumret i en ny sträng.
                     string[] delen = detsomsvarats.Split(';');
 
@@ -345,11 +349,11 @@ namespace KP3000
                         {
                             nyttfelsvar.Svar2 = detkorrektasvaret[1];
                         }
-                        else if (detkorrektasvaret[1] ==  nyttfelsvar.Text)
+
+                        if (nyttfelsvar.Svar2.Contains(":"))
                         {
-                            nyttfelsvar.Svar2 = "";
+                            nyttfelsvar.Svar2 = nyttfelsvar.Svar2.Remove(nyttfelsvar.Svar2.LastIndexOf(":"));
                         }
-                        
 
                         felsvar.Add(nyttfelsvar);
 

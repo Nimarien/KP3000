@@ -26,7 +26,8 @@
                             <asp:Label ID="Label2" runat="server" Text="här är frågorna som du klantade till det på;"></asp:Label>
 
                             <div>
-                                <asp:GridView ID="Gridden2" DataKeyNames="fråga, ditt svar, rätt svar" runat="server"></asp:GridView>
+                                <asp:GridView ID="Gridden2" runat="server"></asp:GridView>
+                                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
                             </div>
                         </form>
                     </div>

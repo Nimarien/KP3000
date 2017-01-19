@@ -18,5 +18,11 @@ namespace KP3000
         public string användarsvar { get; set; }
 
         //ev koppling till databas?
+
+
+        public override string ToString()
+        {
+            return Text + användarsvar + Svar;
+        }
     }
 }
