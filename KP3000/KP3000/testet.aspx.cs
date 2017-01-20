@@ -92,7 +92,7 @@ namespace KP3000
             int nummer = Convert.ToInt32(Session["counter"]);
             nummer++;
 
-            if ((string)Session["anställd"] == "test" && nummer <= 25)
+            if ((bool)Session["anställd"] == true && nummer <= 25)
             {
                 LagraAllaFrågorLicensierad();
 
@@ -104,7 +104,7 @@ namespace KP3000
 
                 Button3.Visible = false;               
             }
-            else if ((string)Session["anställd"] == "fel" && nummer <= 15)
+            else if ((bool)Session["anställd"] == false && nummer <= 15)
             {
                 LagraAllaFrågorÅku();
 
@@ -116,7 +116,7 @@ namespace KP3000
 
                 Button3.Visible = false;
             }
-            else if ((string)Session["anställd"] == "test" && nummer == 26)
+            else if ((bool)Session["anställd"] == true && nummer == 26)
             {
                 Label1.Text = "Nu är testet klart";
                 Label2.Text = "Tryck på knappen rätta för att se dina svar";
@@ -128,7 +128,7 @@ namespace KP3000
                 Button3.Visible = true;
                 Button3.Enabled = true;
             }
-            else if ((string)Session["anställd"] == "fel" && nummer == 16)
+            else if ((bool)Session["anställd"] == false && nummer == 16)
             {
                 Label1.Text = "Nu är testet klart";
                 Label2.Text = "Tryck på knappen rätta för att se dina svar";
@@ -148,7 +148,7 @@ namespace KP3000
             string nummerochtext = "inget";
             string texten = "inget";
                                     
-            if ((string)Session["anställd"] == "test")
+            if ((bool)Session["anställd"] == true)
             {                
                 if (RadioButton1.Checked)
                 {
@@ -167,7 +167,7 @@ namespace KP3000
                 nummerochtext = a.ToString() + "; " + texten;
 
             }
-            else if ((string)Session["anställd"] == "fel")
+            else if ((bool)Session["anställd"] == false)
             {
                 if (RadioButton1.Checked)
                 {
@@ -236,11 +236,11 @@ namespace KP3000
 
             string a = delen + "; " + q;
 
-            if ((string)Session["anställd"] == "test")
+            if ((bool)Session["anställd"] == true)
             {
                 licensieradesvar.Add(a);
             }
-            else if ((string)Session["anställd"] == "fel")
+            else if ((bool)Session["anställd"] == false)
             {
                 åkusvar.Add(a);
             }
@@ -271,7 +271,7 @@ namespace KP3000
             int nummer = 0;
             int del = 0;
                    
-            if ((string)Session["anställd"] == "test")
+            if ((bool)Session["anställd"] == true)
             {
                 string vägen = Server.MapPath("Licenstest.xml");
                 XmlDocument Frågorna = new XmlDocument();
@@ -369,9 +369,7 @@ namespace KP3000
                 }                
             }
 
-
-            //ÅKU-delen
-            else if ((string)Session["anställd"] == "fel")
+            else if ((bool)Session["anställd"] == false)
             {
                 string vägen = Server.MapPath("ÅKU.xml");
                 XmlDocument Frågorna = new XmlDocument();
@@ -414,6 +412,7 @@ namespace KP3000
                     //delar upp svaret så att det går att använda
                     string[] splittad = rättsvar[nyttnummer].Split(';');
 
+
                     string[] detkorrektasvaret = splittad[2].Split(',');
                     if (detkorrektasvaret[1].StartsWith(" :") == true)
                     {
@@ -443,6 +442,7 @@ namespace KP3000
                     }
                     else if (delen[2] != detkorrektasvaret[0] || delen[2] != detkorrektasvaret[1])
                     {
+
                         //här ska det felaktiga svaret lagras i nåt så att användaren kan läsa vad som är fel på rättningssidan
                         frågor nyttfelsvar = new frågor();
                         nyttfelsvar.Text = frågan[1];
@@ -475,6 +475,80 @@ namespace KP3000
 
             Response.Redirect("rättning.aspx");
 
+            //else if ((string)Session["anställd"] == "fel")
+            //{
+            //    string vägen = Server.MapPath("ÅKU.xml");
+            //    XmlDocument Frågorna = new XmlDocument();
+            //    Frågorna.Load(vägen);
+            //    XmlNodeList Frågedetaljer = Frågorna.SelectNodes("frågor/fråga");
+            //    foreach (XmlNode nod in Frågedetaljer)
+            //    {
+            //        frågor Fråga = new frågor();
+            //        Fråga.Svar = nod["svar"].InnerText;
+            //        Fråga.Svar2 = nod["svartvå"].InnerText;
+
+            //        Fråga.Del = nod["del"].InnerText;
+
+            //        if (Fråga.Del == "Produkter och hantering av kundens affärer")
+            //        {
+            //            del = 1;
+            //        }
+            //        else if (Fråga.Del == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+            //        {
+            //            del = 2;
+            //        }
+            //        else if (Fråga.Del == "Etik och regelverk")
+            //        {
+            //            del = 3;
+            //        }
+
+            //        string rättformat = del + "; " + nummer + "; " + Fråga.Svar + ", " + Fråga.Svar2 + ": " + Fråga.Text;
+            //        rättsvar.Add(rättformat);
+            //        nummer++;
+            //    }
+
+            //    //här kollas svaren vid åku-testet
+            //    int nyttnummer = 0;
+
+            //    foreach (string item in åkusvar)
+            //    {
+
+            //        string detsomsvarats = åkusvar[nyttnummer].ToString();
+
+            //        //delar upp svaret så att det går att använda
+            //        string[] splittad = rättsvar[nyttnummer].Split(';');
+            //        string[] detkorrektasvaret = splittad[2].Split(',');
+
+            //        //här vill jag plocka ut bara strängen, och spara delnumret i en ny sträng.
+            //        string[] delen = detsomsvarats.Split(';');
+
+            //        if (delen[2] == detkorrektasvaret[0] || delen[2] == detkorrektasvaret[1])
+            //        {
+            //            if (delen[0] == "1")
+            //            {
+            //                rättpådelett++;
+            //            }
+            //            else if (delen[0] == "2")
+            //            {
+            //                rättpådeltvå++;
+            //            }
+            //            else if (delen[0] == "3")
+            //            {
+            //                rättpådeltre++;
+            //            }
+            //            rätt++;
+            //            nyttnummer++;
+            //        }
+            //        else if (delen[2] != detkorrektasvaret[0] || delen[2] != detkorrektasvaret[1])
+            //        {
+            //            fel++;
+            //            nyttnummer++;
+            //        }                   
+            //    }
+            //}
+
+
+            //koppling till databas eller liknande så admin kan se mm
         }
     }
 }

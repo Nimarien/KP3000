@@ -40,7 +40,7 @@ namespace KP3000
 
 
 
-            if ((string)Session["anställd"] == "test")
+            if ((bool)Session["anställd"] == true)
             {
                 string vägen = Server.MapPath("Licenstest.xml");
                 XmlDocument Frågorna = new XmlDocument();
@@ -64,7 +64,7 @@ namespace KP3000
                     }
                 }
             }
-            else if ((string)Session["anställd"] == "fel")
+            else if ((bool)Session["anställd"] == false)
             {
                 string vägen = Server.MapPath("ÅKU.xml");
                 XmlDocument Frågorna = new XmlDocument();
@@ -169,7 +169,6 @@ namespace KP3000
 
             var resultat = from frågor in felsvar select new { frågor.Text, frågor.användarsvar, frågor.Svar, frågor.Svar2 };
             //felsvar.Where(frågor => frågor.Text != null && frågor.användarsvar != null && frågor.Svar != null && frågor.Svar2 != null);
-
 
             Gridden2.DataSource = resultat.ToList();
             Gridden2.DataBind();
