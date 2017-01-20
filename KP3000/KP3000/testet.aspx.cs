@@ -320,12 +320,14 @@ namespace KP3000
                     {
                         detkorrektasvaret[1] = "";
                     }
+
+                    string[] ingenfrågamedisvaret = detkorrektasvaret[1].Split(':');
                     //här vill jag plocka ut bara strängen, och spara delnumret i en ny sträng.
                     string[] delen = detsomsvarats.Split(';');
 
                     string[] frågan = rättsvar[nyttnummer].Split(':');
 
-                    if (delen[2] == detkorrektasvaret[0] || delen[2] == detkorrektasvaret[1])
+                    if (delen[2] == detkorrektasvaret[0] || delen[2] == ingenfrågamedisvaret[0])
                     {
                         if (delen[0] == "1")
                         {
@@ -369,7 +371,8 @@ namespace KP3000
                 }                
             }
 
-            else if ((bool)Session["anställd"] == false)
+            //åkudelen
+            if ((bool)Session["anställd"] == false)
             {
                 string vägen = Server.MapPath("ÅKU.xml");
                 XmlDocument Frågorna = new XmlDocument();
@@ -401,7 +404,7 @@ namespace KP3000
                     nummer++;
                 }
 
-                //här kollas varje svar vid ÅKU
+                //här kollas varje svar vid licensieringstestet
                 int nyttnummer = 0;
 
                 foreach (string item in åkusvar)
@@ -418,12 +421,14 @@ namespace KP3000
                     {
                         detkorrektasvaret[1] = "";
                     }
+
+                    string[] ingenfrågamedisvaret = detkorrektasvaret[1].Split(':');
                     //här vill jag plocka ut bara strängen, och spara delnumret i en ny sträng.
                     string[] delen = detsomsvarats.Split(';');
 
                     string[] frågan = rättsvar[nyttnummer].Split(':');
 
-                    if (delen[2] == detkorrektasvaret[0] || delen[2] == detkorrektasvaret[1])
+                    if (delen[2] == detkorrektasvaret[0] || delen[2] == ingenfrågamedisvaret[0])
                     {
                         if (delen[0] == "1")
                         {
