@@ -9,17 +9,17 @@ namespace KP3000
 {
     public partial class admin1 : System.Web.UI.Page
     {
-        användare användare = new användare();
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            adminlogin.Text = Session["anställd"].ToString();
+            adminlogin.Text = Session["användarnamn"].ToString();
             
         }
 
+        protected void btn_ändrafrågor_Click(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }

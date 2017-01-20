@@ -11,7 +11,7 @@ namespace KP3000
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            admininlog.Text = Session["anställd"].ToString();
+            admininlog.Text = Session["användarnamn"].ToString();
         }
     }
 }
