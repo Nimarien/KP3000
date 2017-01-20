@@ -30,9 +30,16 @@ namespace KP3000
         {
             string anvNamn = användarnamn.Value;
             string lsn = lösen.Value;
-            användaren = db.hämtaAnvändarInfo(anvNamn, lsn);
 
-            if (användaren.anställd == true)
+            användaren = db.hämtaAnvändarInfo(anvNamn, lsn);
+            
+
+            if (användaren.ärAdmin == true)
+            {
+                sessionInfo();
+                Response.Redirect("admin.aspx");
+            }
+            else if (användaren.anställd == true)
             {
                 sessionInfo();
                 Response.Redirect("inloggad.aspx");
@@ -42,12 +49,6 @@ namespace KP3000
             {
                 sessionInfo();
                 Response.Redirect("inloggad.aspx");
-
-            }
-            else if (användaren.ärAdmin == true)
-            {
-                sessionInfo();
-                Response.Redirect("admin.aspx");
             }
             else
             {
