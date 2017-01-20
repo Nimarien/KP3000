@@ -30,7 +30,7 @@
     <alternativett>erotisk</alternativett>
     <alternativtvå>exklusiv</alternativtvå>
     <alternativtre>elektronisk</alternativtre>
-    <svar>30 cm</svar>
+    <svar>elektronisk</svar>
     <svartvå></svartvå>
   </fråga>
 
@@ -59,12 +59,12 @@
   <fråga>
     <del>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</del>
     <nummer>1</nummer>
-    <text>vilket/vilka av följande tal blir 5?</text>
-    <alternativett>2,5 + 2,5</alternativett>
-    <alternativtvå>100 - 95</alternativtvå>
-    <alternativtre>95 - 100</alternativtre>
-    <svar>2,5 + 2,5</svar>
-    <svartvå>100 - 95</svartvå>
+    <text>vad för sorts bräda åker kristoffer på?</text>
+    <alternativett>2tum4</alternativett>
+    <alternativtvå>läkt</alternativtvå>
+    <alternativtre>surfbräda</alternativtre>
+    <svar>surfbräda</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>
@@ -160,10 +160,10 @@
     <del>Etik och regelverk</del>
     <nummer>5</nummer>
     <text>varför är det inte smart att spara sina pengar i madrassen?</text>
-    <alternativett>lätt för tjuvar att stjälar</alternativett>
+    <alternativett>lätt för tjuvar att stjäla</alternativett>
     <alternativtvå>ingen ränta</alternativtvå>
     <alternativtre>obekväm säng</alternativtre>
-    <svar>lätt för tjuvar att stjälar</svar>
+    <svar>lätt för tjuvar att stjäla</svar>
     <svartvå>ingen ränta</svartvå>
   </fråga>
 

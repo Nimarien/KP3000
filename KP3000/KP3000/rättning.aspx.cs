@@ -22,11 +22,14 @@ namespace KP3000
             double procentett;
             double proenttvå;
             double procenttre;
+            bool klaradetestet = false;
 
             Label1.Text = "Du fick totalt " + antalrätt + " rätt på testet, och " + antalfel + " fel på testet.";
             rättandet(rättpådelett, rättpådeltvå, rättpådeltre, out procentett, out proenttvå, out procenttre);
             gridd1(procentett, proenttvå, procenttre);
             gridd2();
+            klar(procentett, proenttvå, procenttre, antalrätt, out klaradetestet);
+            gridd3(klaradetestet);
         }
 
         public void rättandet(int a, int b, int c, out double d, out double e, out double f)
@@ -171,6 +174,76 @@ namespace KP3000
             Gridden2.DataBind();
 
 
+        }
+
+        public void sparatilldatabas()
+        {
+
+        }
+
+        //för att se om allt användare är godkänd totalt
+        public void klar (double a, double b, double c, int e, out bool d)
+        {
+            d = false;
+            double p = 0;
+            int måsteuppitvå = 0;
+
+            if (a >= 60)
+            {
+                måsteuppitvå++;
+            }
+            if (b >= 60 )
+            {
+                måsteuppitvå++;
+            }
+            if (c >= 60)
+            {
+                måsteuppitvå++;
+
+            }
+            if ((string)Session["anställd"] == "test")
+            {
+                double max = 25;
+                double hundra = 100;
+                double rätten = e;
+
+                double k = rätten / max;
+                p = k * hundra;
+                Math.Round(p, 2);
+            }
+            else if ((string)Session["anställd"] == "fel")
+            {
+                double max = 15;
+                double hundra = 100;
+                double rätten = e;
+
+                double k = rätten / max;
+                p = k * hundra;
+                Math.Round(p, 2);
+            }
+
+            if (måsteuppitvå >= 2 || p >= 70)
+            {
+                d = true;
+            }
+            else
+            {
+                d = false;
+            }
+        
+        }
+
+        //visa i label om hen är godkänd
+        public void gridd3 (bool a)
+        {
+            if (a == true)
+            {
+                Label3.Text = "grattis!! du klarade testet";
+            }
+            else if (a == false)
+            {
+                Label3.Text = "det blir till att göra om, sopa!";
+            }
         }
     }
 }

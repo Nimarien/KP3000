@@ -28,7 +28,10 @@
                             <div>
                                 <asp:GridView ID="Gridden2" runat="server"></asp:GridView>
                                 <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
+
                             </div>
+
+                            <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
                         </form>
                     </div>
 
