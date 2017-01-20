@@ -370,12 +370,7 @@ namespace KP3000
             }
 
 
-
-
-
-
-
-
+            //ÅKU-delen
             else if ((string)Session["anställd"] == "fel")
             {
                 string vägen = Server.MapPath("ÅKU.xml");
@@ -419,7 +414,6 @@ namespace KP3000
                     //delar upp svaret så att det går att använda
                     string[] splittad = rättsvar[nyttnummer].Split(';');
 
-
                     string[] detkorrektasvaret = splittad[2].Split(',');
                     if (detkorrektasvaret[1].StartsWith(" :") == true)
                     {
@@ -449,7 +443,6 @@ namespace KP3000
                     }
                     else if (delen[2] != detkorrektasvaret[0] || delen[2] != detkorrektasvaret[1])
                     {
-
                         //här ska det felaktiga svaret lagras i nåt så att användaren kan läsa vad som är fel på rättningssidan
                         frågor nyttfelsvar = new frågor();
                         nyttfelsvar.Text = frågan[1];
@@ -474,79 +467,6 @@ namespace KP3000
                 }
             }
 
-
-            //else if ((string)Session["anställd"] == "fel")
-            //{
-            //    string vägen = Server.MapPath("ÅKU.xml");
-            //    XmlDocument Frågorna = new XmlDocument();
-            //    Frågorna.Load(vägen);
-            //    XmlNodeList Frågedetaljer = Frågorna.SelectNodes("frågor/fråga");
-            //    foreach (XmlNode nod in Frågedetaljer)
-            //    {
-            //        frågor Fråga = new frågor();
-            //        Fråga.Svar = nod["svar"].InnerText;
-            //        Fråga.Svar2 = nod["svartvå"].InnerText;
-
-            //        Fråga.Del = nod["del"].InnerText;
-
-            //        if (Fråga.Del == "Produkter och hantering av kundens affärer")
-            //        {
-            //            del = 1;
-            //        }
-            //        else if (Fråga.Del == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
-            //        {
-            //            del = 2;
-            //        }
-            //        else if (Fråga.Del == "Etik och regelverk")
-            //        {
-            //            del = 3;
-            //        }
-
-            //        string rättformat = del + "; " + nummer + "; " + Fråga.Svar + ", " + Fråga.Svar2 + ": " + Fråga.Text;
-            //        rättsvar.Add(rättformat);
-            //        nummer++;
-            //    }
-
-            //    //här kollas svaren vid åku-testet
-            //    int nyttnummer = 0;
-
-            //    foreach (string item in åkusvar)
-            //    {
-
-            //        string detsomsvarats = åkusvar[nyttnummer].ToString();
-
-            //        //delar upp svaret så att det går att använda
-            //        string[] splittad = rättsvar[nyttnummer].Split(';');
-            //        string[] detkorrektasvaret = splittad[2].Split(',');
-
-            //        //här vill jag plocka ut bara strängen, och spara delnumret i en ny sträng.
-            //        string[] delen = detsomsvarats.Split(';');
-
-            //        if (delen[2] == detkorrektasvaret[0] || delen[2] == detkorrektasvaret[1])
-            //        {
-            //            if (delen[0] == "1")
-            //            {
-            //                rättpådelett++;
-            //            }
-            //            else if (delen[0] == "2")
-            //            {
-            //                rättpådeltvå++;
-            //            }
-            //            else if (delen[0] == "3")
-            //            {
-            //                rättpådeltre++;
-            //            }
-            //            rätt++;
-            //            nyttnummer++;
-            //        }
-            //        else if (delen[2] != detkorrektasvaret[0] || delen[2] != detkorrektasvaret[1])
-            //        {
-            //            fel++;
-            //            nyttnummer++;
-            //        }                   
-            //    }
-            //}
-
             Session["rätt"] = rätt;
             Session["fel"] = fel;
             Session["rättpådelett"] = rättpådelett;
@@ -555,7 +475,6 @@ namespace KP3000
 
             Response.Redirect("rättning.aspx");
 
-            //koppling till databas eller liknande så admin kan se mm
         }
     }
 }
