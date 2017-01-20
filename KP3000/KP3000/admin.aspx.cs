@@ -16,7 +16,6 @@ namespace KP3000
 
             adminlogin.Text = Session["anställd"].ToString();
             
-
         }
 
 

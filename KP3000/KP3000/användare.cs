@@ -7,26 +7,29 @@ namespace KP3000
 {
     public class användare
     {
-        public string Namn { get; set; }
-        public string Användarnamn { get; set; }
-        public bool Anställd { get; set; }
-        public bool klaratTest { get; set; }
-        public DateTime klaratSenast { get; set; }
+        public int anvid { get; set; }
+        public string användarnamn { get; set; }
+        public string login { get; set; }
+        public string lösen { get; set; }
+        public bool anställd { get; set; }
         public bool ärAdmin { get; set; }
+        public DateTime testDatum { get; set; }
 
 
         public override string ToString()
         {
             if (ärAdmin == true)
             {
-                return Namn + "(Admin)";
+                return användarnamn + "(Admin)";
+            }
+            else if (anställd == true)
+            {
+                return användarnamn + "(Anställd)";
             }
             else
-
-            return Namn + "(Anställd)";
-
+            {
+                return användarnamn + "(ej anställd)";
+            }
         }
-
     }
-    
 }

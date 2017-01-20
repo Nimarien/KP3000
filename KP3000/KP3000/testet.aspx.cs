@@ -92,7 +92,7 @@ namespace KP3000
             int nummer = Convert.ToInt32(Session["counter"]);
             nummer++;
 
-            if ((string)Session["anställd"] == "test" && nummer <= 25)
+            if ((bool)Session["anställd"] == true && nummer <= 25)
             {
                 LagraAllaFrågorLicensierad();
 
@@ -104,7 +104,7 @@ namespace KP3000
 
                 Button3.Visible = false;               
             }
-            else if ((string)Session["anställd"] == "fel" && nummer <= 15)
+            else if ((bool)Session["anställd"] == false && nummer <= 15)
             {
                 LagraAllaFrågorÅku();
 
@@ -116,7 +116,7 @@ namespace KP3000
 
                 Button3.Visible = false;
             }
-            else if ((string)Session["anställd"] == "test" && nummer == 26)
+            else if ((bool)Session["anställd"] == true && nummer == 26)
             {
                 Label1.Text = "Nu är testet klart";
                 Label2.Text = "Tryck på knappen rätta för att se dina svar";
@@ -128,7 +128,7 @@ namespace KP3000
                 Button3.Visible = true;
                 Button3.Enabled = true;
             }
-            else if ((string)Session["anställd"] == "fel" && nummer == 16)
+            else if ((bool)Session["anställd"] == false && nummer == 16)
             {
                 Label1.Text = "Nu är testet klart";
                 Label2.Text = "Tryck på knappen rätta för att se dina svar";
@@ -148,7 +148,7 @@ namespace KP3000
             string nummerochtext = "inget";
             string texten = "inget";
                                     
-            if ((string)Session["anställd"] == "test")
+            if ((bool)Session["anställd"] == true)
             {                
                 if (RadioButton1.Checked)
                 {
@@ -167,7 +167,7 @@ namespace KP3000
                 nummerochtext = a.ToString() + "; " + texten;
 
             }
-            else if ((string)Session["anställd"] == "fel")
+            else if ((bool)Session["anställd"] == false)
             {
                 if (RadioButton1.Checked)
                 {
@@ -236,11 +236,11 @@ namespace KP3000
 
             string a = delen + "; " + q;
 
-            if ((string)Session["anställd"] == "test")
+            if ((bool)Session["anställd"] == true)
             {
                 licensieradesvar.Add(a);
             }
-            else if ((string)Session["anställd"] == "fel")
+            else if ((bool)Session["anställd"] == false)
             {
                 åkusvar.Add(a);
             }
@@ -271,7 +271,7 @@ namespace KP3000
             int nummer = 0;
             int del = 0;
                    
-            if ((string)Session["anställd"] == "test")
+            if ((bool)Session["anställd"] == true)
             {
                 string vägen = Server.MapPath("Licenstest.xml");
                 XmlDocument Frågorna = new XmlDocument();
@@ -369,14 +369,7 @@ namespace KP3000
                 }                
             }
 
-
-
-
-
-
-
-
-            else if ((string)Session["anställd"] == "fel")
+            else if ((bool)Session["anställd"] == false)
             {
                 string vägen = Server.MapPath("ÅKU.xml");
                 XmlDocument Frågorna = new XmlDocument();
@@ -474,6 +467,13 @@ namespace KP3000
                 }
             }
 
+            Session["rätt"] = rätt;
+            Session["fel"] = fel;
+            Session["rättpådelett"] = rättpådelett;
+            Session["rättpådeltvå"] = rättpådeltvå;
+            Session["rättpådeltre"] = rättpådeltre;
+
+            Response.Redirect("rättning.aspx");
 
             //else if ((string)Session["anställd"] == "fel")
             //{
@@ -547,13 +547,6 @@ namespace KP3000
             //    }
             //}
 
-            Session["rätt"] = rätt;
-            Session["fel"] = fel;
-            Session["rättpådelett"] = rättpådelett;
-            Session["rättpådeltvå"] = rättpådeltvå;
-            Session["rättpådeltre"] = rättpådeltre;
-
-            Response.Redirect("rättning.aspx");
 
             //koppling till databas eller liknande så admin kan se mm
         }

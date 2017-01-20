@@ -4,15 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.ComponentModel;
 
 namespace KP3000
 {
     public partial class Login : System.Web.UI.Page
     {
-        List<användare> användarna = new List<användare>();
+        BindingList<användare> användarna = new BindingList<användare>();
+        användare användaren = new användare();
         List<string> SvarL = new List<string>();
         List<string> SvarÅ = new List<string>();
         List<frågor> felsvar = new List<frågor>();
+        Postgres db = new Postgres();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,43 +30,23 @@ namespace KP3000
         {
             string anvNamn = användarnamn.Value;
             string lsn = lösen.Value;
-            Session["Lsvar"] = SvarL;
-            Session["Åsvar"] = SvarÅ;
-            Session["felsvar"] = felsvar;
+            användaren = db.hämtaAnvändarInfo(anvNamn, lsn);
 
-
-            if (anvNamn == "test" && lsn == "test")
+            if (användaren.anställd == true)
             {
-                användare nyanvändare = new användare();
-                nyanvändare.Namn = "Eskil Testsson";
-                nyanvändare.Användarnamn = "test";
-                nyanvändare.Anställd = true;
-
-                Session["anställd"] = "test";
-                Session["användare"] = nyanvändare;
+                sessionInfo();
                 Response.Redirect("inloggad.aspx");
 
             }
-            else if (anvNamn == "fel" && lsn == "fel")
+            else if (användaren.anställd == false)
             {
-                användare nyanvändare = new användare();
-                nyanvändare.Namn = "Felet Andersson";
-                nyanvändare.Användarnamn = "fel";
-                nyanvändare.Anställd = false;
-
-                Session["anställd"] = "fel";
+                sessionInfo();
                 Response.Redirect("inloggad.aspx");
 
             }
-            else if (anvNamn == "admin" && lsn == "admin")
+            else if (användaren.ärAdmin == true)
             {
-                användare nyanvändare = new användare();
-                nyanvändare.Namn = "Admin Adminlund";
-                nyanvändare.Användarnamn = "admin";
-                nyanvändare.Anställd = true;
-                nyanvändare.ärAdmin = true;
-
-                Session["anställd"] = "admin";
+                sessionInfo();
                 Response.Redirect("admin.aspx");
             }
             else
@@ -72,5 +55,22 @@ namespace KP3000
             }
 
         }
+
+        //Lagrar information från databas i session
+        public void sessionInfo()
+        {
+            Session["anvid"] = användaren.anvid;
+            Session["användarnamn"] = användaren.användarnamn;
+            Session["login"] = användaren.login;
+            Session["lösen"] = användaren.lösen;
+            Session["anställd"] = användaren.anställd;
+            Session["admin"] = användaren.ärAdmin;
+            Session["testdatum"] = användaren.testDatum;
+
+            Session["Lsvar"] = SvarL;
+            Session["Åsvar"] = SvarÅ;
+            Session["felsvar"] = felsvar;
+        }
+
     }
 }
