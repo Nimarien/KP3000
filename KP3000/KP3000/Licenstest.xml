@@ -92,12 +92,12 @@
   <fråga>
     <del>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</del>
     <nummer>1</nummer>
-    <text>vilket/vilka av följande tal blir 5?</text>
-    <alternativett>2,5 + 2,5</alternativett>
-    <alternativtvå>100 - 95</alternativtvå>
-    <alternativtre>95 - 100</alternativtre>
-    <svar>2,5 + 2,5</svar>
-    <svartvå>100 - 95</svartvå>
+    <text>vad för sorts bräda åker kristoffer på?</text>
+    <alternativett>2tum4</alternativett>
+    <alternativtvå>läkt</alternativtvå>
+    <alternativtre>surfbräda</alternativtre>
+    <svar>surfbräda</svar>
+    <svartvå></svartvå>
   </fråga>
 
   <fråga>

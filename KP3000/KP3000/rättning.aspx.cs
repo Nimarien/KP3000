@@ -24,12 +24,23 @@ namespace KP3000
             double procenttre;
             bool klaradetestet = false;
 
-            Label1.Text = "Du fick totalt " + antalrätt + " rätt på testet, och " + antalfel + " fel på testet.";
+            if (antalfel == 0)
+            {
+                Label1.Text = "Du fick totalt " + antalrätt + " rätt och " + antalfel + " fel på testet.";
+                Label2.Text = "Grattis du fick alla rätt och har inga fel! Du har alltså svarat rätt på alla frågor, utan att svara fel på någon";
+            }
+            else if (antalfel > 0)
+            {
+                Label1.Text = "Du fick totalt " + antalrätt + " rätt och " + antalfel + " fel på testet.";
+            }
+            
             rättandet(rättpådelett, rättpådeltvå, rättpådeltre, out procentett, out proenttvå, out procenttre);
             gridd1(procentett, proenttvå, procenttre);
             gridd2();
             klar(procentett, proenttvå, procenttre, antalrätt, out klaradetestet);
             gridd3(klaradetestet);
+
+
         }
 
         public void rättandet(int a, int b, int c, out double d, out double e, out double f)
@@ -201,7 +212,7 @@ namespace KP3000
                 måsteuppitvå++;
 
             }
-            if ((string)Session["anställd"] == "test")
+            if ((bool)Session["anställd"] == true)
             {
                 double max = 25;
                 double hundra = 100;
@@ -211,7 +222,7 @@ namespace KP3000
                 p = k * hundra;
                 Math.Round(p, 2);
             }
-            else if ((string)Session["anställd"] == "fel")
+            else if ((bool)Session["anställd"] == false)
             {
                 double max = 15;
                 double hundra = 100;
@@ -238,11 +249,22 @@ namespace KP3000
         {
             if (a == true)
             {
+                svarbra.Visible = true;
+                svardåligt.Visible = false;
+                Label4.Visible = false;
+                Label3.Visible = true;
                 Label3.Text = "grattis!! du klarade testet";
+                
             }
             else if (a == false)
             {
-                Label3.Text = "det blir till att göra om, sopa!";
+                svardåligt.Visible = true;
+                svarbra.Visible = false;
+                Label3.Visible = false;
+                Label4.Visible = true;
+                Label4.Text = "det blir till att göra om, sopa!";
+
+
             }
         }
     }
