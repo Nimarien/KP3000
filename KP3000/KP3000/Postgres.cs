@@ -24,7 +24,7 @@ namespace KP3000
             try
             {
                 conn.Open();
-                string sql = "SELECT * FROM användare WHERE login = '@anv' AND lösen = '@losen'";
+                string sql = "SELECT * FROM användare WHERE login = @anv AND lösen = @losen";
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("anv", anv);
                 cmd.Parameters.AddWithValue("losen", lösen);
