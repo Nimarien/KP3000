@@ -43,7 +43,8 @@ namespace KP3000
                         lösen = dr["lösen"].ToString(),
                         ärAdmin = (bool)dr["äradmin"],                    
                         testDatum = (DateTime)dr["testdatum"],
-                        anställd = (bool)dr["anställd"]
+                        anställd = (bool)dr["anställd"],
+                        //datumgodkänt = (DateTime)dr["datumgodkänt"]
                      };
                     dr.Close();
                 return användaren;

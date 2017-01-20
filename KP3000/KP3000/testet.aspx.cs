@@ -445,6 +445,8 @@ namespace KP3000
                         rätt++;
                         nyttnummer++;
                     }
+
+
                     else if (delen[2] != detkorrektasvaret[0] || delen[2] != detkorrektasvaret[1])
                     {
 
@@ -457,11 +459,6 @@ namespace KP3000
                         if (detkorrektasvaret[1] != null)
                         {
                             nyttfelsvar.Svar2 = detkorrektasvaret[1];
-                        }
-
-                        if (nyttfelsvar.Svar2.Contains(":"))
-                        {
-                            nyttfelsvar.Svar2 = nyttfelsvar.Svar2.Remove(nyttfelsvar.Svar2.LastIndexOf(":"));
                         }
 
                         felsvar.Add(nyttfelsvar);

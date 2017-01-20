@@ -15,23 +15,42 @@
 
                         här är ditt resultat
 
+                            <div id="svarbra" class="alert alert-success" role="alert" runat="server">
+                                <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+                            </div>
+                            
+                            <div id="svardåligt" class="alert alert-danger" role="alert" runat="server">
+                                <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
+                            </div>
+
                         <form class="form" runat="server">
 
-                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                        
-                            <div>
-                                <asp:GridView ID="Gridden" DataKeyNames="Del, procent, godkänd" runat="server"></asp:GridView>
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h3 class="panel-title">Sammanfattning</h3>
+                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                              </div>
+                              <div class="panel-body">
+                                 <asp:GridView ID="Gridden" DataKeyNames="Del, procent, godkänd" runat="server"></asp:GridView>
+                              </div>
                             </div>
 
-                            <asp:Label ID="Label2" runat="server" Text="här är frågorna som du klantade till det på;"></asp:Label>
-
-                            <div>
-                                <asp:GridView ID="Gridden2" runat="server"></asp:GridView>
-                                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
-
+                             <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h3 class="panel-title">Frågor</h3>
+                              </div>
+                              <div class="panel-body">
+                                <asp:Label ID="Label2" runat="server" Text="här är frågorna som du klantade till det på;"></asp:Label>
+                              
+                                  <asp:GridView ID="Gridden2" runat="server"></asp:GridView>
+                                  <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>
+                              
+                              
+                              </div>
                             </div>
+      
 
-                            <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+
                         </form>
                     </div>
 
