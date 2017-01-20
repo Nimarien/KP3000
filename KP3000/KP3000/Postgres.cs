@@ -22,7 +22,8 @@ namespace KP3000
         public användare hämtaAnvändarInfo(string anv, string lösen)
         {
             try
-            {
+            {           
+
                 conn.Open();
                 string sql = "SELECT * FROM användare WHERE login = @anv AND lösen = @losen";
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
@@ -40,7 +41,7 @@ namespace KP3000
                         användarnamn = dr["användarnamn"].ToString(),
                         login = dr["login"].ToString(),
                         lösen = dr["lösen"].ToString(),
-                        ärAdmin = (bool)dr["äradmin"],
+                        ärAdmin = (bool)dr["äradmin"],                    
                         testDatum = (DateTime)dr["testdatum"],
                         anställd = (bool)dr["anställd"]
                      };

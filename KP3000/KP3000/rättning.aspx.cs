@@ -201,7 +201,7 @@ namespace KP3000
                 måsteuppitvå++;
 
             }
-            if ((string)Session["anställd"] == "test")
+            if ((bool)Session["anställd"] == true)
             {
                 double max = 25;
                 double hundra = 100;
@@ -211,7 +211,7 @@ namespace KP3000
                 p = k * hundra;
                 Math.Round(p, 2);
             }
-            else if ((string)Session["anställd"] == "fel")
+            else if ((bool)Session["anställd"] == false)
             {
                 double max = 15;
                 double hundra = 100;
@@ -244,6 +244,7 @@ namespace KP3000
             {
                 Label3.Text = "det blir till att göra om, sopa!";
             }
+
         }
     }
 }
