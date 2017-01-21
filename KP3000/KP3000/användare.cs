@@ -8,28 +8,28 @@ namespace KP3000
     public class användare
     {
         public int anvid { get; set; }
-        public string användarnamn { get; set; }
+        public string namn { get; set; }
         public string login { get; set; }
         public string lösen { get; set; }
         public bool anställd { get; set; }
         public bool ärAdmin { get; set; }
         public DateTime testDatum { get; set; }
         public DateTime datumgodkänt { get; set; }
-
+        public 
 
         public override string ToString()
         {
             if (ärAdmin == true)
             {
-                return användarnamn + "(Admin)";
+                return namn + "(Admin)";
             }
             else if (anställd == true)
             {
-                return användarnamn + "(Anställd)";
+                return namn + "(Anställd)";
             }
             else
             {
-                return användarnamn + "(ej anställd)";
+                return namn + "(ej anställd)";
             }
         }
     }

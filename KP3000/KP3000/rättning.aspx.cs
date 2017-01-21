@@ -119,7 +119,7 @@ namespace KP3000
         //griddview1
         public void gridd1 (double d, double e, double f)
         {
-            List<gridview1> hubbabubba = new List<gridview1>();
+            List<gridview1> sammanfattning = new List<gridview1>();
 
             string delett = "Produkter och hantering av kundens affärer";
             string deltvå = "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi";
@@ -137,7 +137,7 @@ namespace KP3000
             {
                 nydel1.godkänd = "nej";
             }
-            hubbabubba.Add(nydel1);
+            sammanfattning.Add(nydel1);
 
             gridview1 nydel2 = new gridview1();
 
@@ -152,7 +152,7 @@ namespace KP3000
                 nydel2.godkänd = "nej";
             }
             
-            hubbabubba.Add(nydel2);
+            sammanfattning.Add(nydel2);
 
 
             gridview1 nydel3 = new gridview1();
@@ -167,9 +167,9 @@ namespace KP3000
             {
                 nydel3.godkänd = "nej";
             }
-            hubbabubba.Add(nydel3);
+            sammanfattning.Add(nydel3);
 
-            Gridden.DataSource = hubbabubba;
+            Gridden.DataSource = sammanfattning;
             Gridden.DataBind();
         }
 
