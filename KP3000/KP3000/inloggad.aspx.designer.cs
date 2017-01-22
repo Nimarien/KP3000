@@ -13,6 +13,24 @@ namespace KP3000 {
     public partial class inloggad {
         
         /// <summary>
+        /// userinlog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label userinlog;
+        
+        /// <summary>
+        /// testlabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label testlabel;
+        
+        /// <summary>
         /// btnGörTest control.
         /// </summary>
         /// <remarks>

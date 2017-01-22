@@ -48,6 +48,7 @@ namespace KP3000
                 if (klaradetestet == true)
                 {
                     sql = "INSERT INTO test (användarid, datumgodkänt, antalrätt, antalfel, datumsenaste) VALUES (@anvid, @datum, @ratt, @fel, @datum)";
+
                 }
                 else if (klaradetestet == false)
                 {
@@ -59,6 +60,7 @@ namespace KP3000
                 if (klaradetestet == true)
                 {
                     sql = "UPDATE test SET datumgodkänt = @datum, antalrätt = @ratt, antalfel = @fel, datumsenaste = @datum WHERE användarid = @anvid";
+
                 }
                 else if (klaradetestet == false)
                 {
@@ -67,6 +69,8 @@ namespace KP3000
 
             }
             db.sparaTest(sql, idag, (int)Session["anvid"], antalrätt, antalfel);
+
+
 
         }
 

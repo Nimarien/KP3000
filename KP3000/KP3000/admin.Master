@@ -33,7 +33,6 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/inloggad.aspx">Startsidan</a></li>
-                        <li><a runat="server" href="~/testet.aspx">Testet</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                      <li><a><span class="glyphicon glyphicon-user">
