@@ -301,6 +301,5 @@ C:\Users\John\Source\Repos\KP140120\KP3000\KP3000\bin\Microsoft.AI.WindowsServer
 C:\Users\John\Source\Repos\KP140120\KP3000\KP3000\bin\Microsoft.ApplicationInsights.xml
 C:\Users\John\Source\Repos\KP140120\KP3000\KP3000\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\John\Source\Repos\KP140120\KP3000\KP3000\bin\Npgsql.xml
-C:\Users\John\Source\Repos\KP140120\KP3000\KP3000\obj\Debug\KP3000.csprojResolveAssemblyReference.cache
 C:\Users\John\Source\Repos\KP140120\KP3000\KP3000\obj\Debug\KP3000.dll
 C:\Users\John\Source\Repos\KP140120\KP3000\KP3000\obj\Debug\KP3000.pdb

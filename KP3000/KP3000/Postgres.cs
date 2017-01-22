@@ -72,10 +72,10 @@ namespace KP3000
             try
             {
                 conn.Open();
-                string sql = "SELECT användare.användarnamn, datum.datumgodkänt, datum.datumsenaste " +
+                string sql = "SELECT användare.användarnamn, test.datumgodkänt, test.datumsenaste, test.antalrätt, test.antalfel " +
                              " FROM användare " +
-                             " INNER JOIN datum " +
-                             " ON användare.användarid = datum.användarid " +
+                             " INNER JOIN test " +
+                             " ON användare.användarid = test.användarid " +
                              " WHERE anställd = false";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
@@ -86,12 +86,16 @@ namespace KP3000
 
                 while (dr.Read())
                 {
-                    nyanvändare = new användare()
-                    {
-                        namn = dr["användarnamn"].ToString(),
-                        datumgodkänt = (DateTime)dr["datumgodkänt"],
-                        testDatum = (DateTime)dr["datumsenaste"],
-                    };
+
+                        nyanvändare = new användare()
+                        {
+                            namn = dr["användarnamn"].ToString(),
+                            datumgodkänt = dr["datumgodkänt"].ToString(),
+                            testDatum = dr["datumsenaste"].ToString(),
+                            antalRätt = (int)dr["antalrätt"],
+                            antalFel = (int)dr["antalfel"],
+                        };
+                    anvlista.Add(nyanvändare);
                 }
                 dr.Close();
                 return anvlista;
@@ -116,10 +120,10 @@ namespace KP3000
             try
             {
                 conn.Open();
-                string sql = "SELECT datum.datumgodkänt, datum.datumsenaste " +
+                string sql = "SELECT användare.användarnamn, test.datumgodkänt, test.datumsenaste, test.antalrätt, test.antalfel " +
                              " FROM användare " +
-                             " INNER JOIN datum " +
-                             " ON användare.användarid = datum.användarid " +
+                             " INNER JOIN test " +
+                             " ON användare.användarid = test.användarid " +
                              " WHERE anställd = true";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
@@ -132,9 +136,13 @@ namespace KP3000
                 {
                     nyanvändare = new användare()
                     {
-                        datumgodkänt = (DateTime)dr["datumgodkänt"],
-                        testDatum = (DateTime)dr["datumsenaste"],
+                        namn = dr["användarnamn"].ToString(),
+                        datumgodkänt = dr["datumgodkänt"].ToString(),
+                        testDatum = dr["datumsenaste"].ToString(),
+                        antalRätt = (int)dr["antalrätt"],
+                        antalFel = (int)dr["antalfel"],
                     };
+                    anvlista.Add(nyanvändare);
                 }
                 dr.Close();
                 return anvlista;
@@ -151,45 +159,18 @@ namespace KP3000
         }
 
         /// <summary>
-        /// LÄGG TILL NYTT GODKÄNT DATUM
+        /// LÄGG TILL TEST I DATABAS
         /// </summary>
+        /// <param name="sql"></param>
         /// <param name="datum"></param>
         /// <param name="anvid"></param>
-        public void nyttTestdatum(DateTime datum, int anvid)
+        /// <param name="rätt"></param>
+        /// <param name="fel"></param>
+        public void sparaTest(string sql, string datum, int anvid, int rätt, int fel)
         {
-            string datumg = datum.ToShortDateString();
-
             try
             {
                 conn.Open();
-                string sql = "INSERT INTO test (datumgodkänt) VALUES (@datumg) WHERE användarid = @anvid";
-
-                NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("datumg", datumg);
-                cmd.Parameters.AddWithValue("anvid", anvid);
-                cmd.ExecuteNonQuery();
-            }
-            catch (NpgsqlException ex)
-            {
-                this.ex = ex.Message;
-            }
-            conn.Close();
-        }
-
-        /// <summary>
-        /// ÄNDRA GODKÄNT DATUM
-        /// </summary>
-        /// <param name="datum"></param>
-        /// <param name="anvid"></param>
-        public void ändraDatum(DateTime datum, int anvid, int rätt, int fel)
-        {
-            
-
-            try
-            {
-                conn.Open();
-                string sql = "UPDATE test SET datumgodkänt = @datum, antalrätt = @ratt, antalfel = @fel, datumsenaste = @datum WHERE användarid = @anvid";
-
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("datum", datum);
                 cmd.Parameters.AddWithValue("anvid", anvid);
@@ -203,7 +184,6 @@ namespace KP3000
             }
             conn.Close();
         }
-
 
     }
 }

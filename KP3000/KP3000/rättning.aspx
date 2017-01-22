@@ -13,7 +13,7 @@
 
                     <div class="well well-lg">
 
-                        här är ditt resultat
+                        <h2>RESULTAT</h2>
 
                             <div id="svarbra" class="alert alert-success" role="alert" runat="server">
                                 <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
@@ -40,7 +40,7 @@
                                 <h3 class="panel-title">Frågor</h3>
                               </div>
                               <div class="panel-body">
-                                <asp:Label ID="Label2" runat="server" Text="här är frågorna som du klantade till det på;"></asp:Label>
+                                <asp:Label ID="Label2" runat="server" Text="här är frågorna du svarat felaktigt på:"></asp:Label>
                               
                                   <asp:GridView ID="Gridden2" runat="server"></asp:GridView>
                                   <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>

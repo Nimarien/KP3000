@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
 
 namespace KP3000
 {
@@ -13,10 +14,14 @@ namespace KP3000
         public string lösen { get; set; }
         public bool anställd { get; set; }
         public bool ärAdmin { get; set; }
-        public DateTime testDatum { get; set; }
-        public DateTime datumgodkänt { get; set; }
+        public string testDatum { get; set; }
+        public string datumgodkänt { get; set; }
         public int antalRätt { get; set; }
         public int antalFel { get; set; }
+
+
+
+
 
         public override string ToString()
         {

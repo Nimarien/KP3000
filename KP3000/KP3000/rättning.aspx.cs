@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 
-
 namespace KP3000
 {
     public partial class rättning : System.Web.UI.Page
@@ -41,30 +40,34 @@ namespace KP3000
             klar(procentett, proenttvå, procenttre, antalrätt, out klaradetestet);
             gridd3(klaradetestet);
 
+            string idag = DateTime.Now.ToShortDateString();
+            string sql ="";
+
             if ((bool)Session["anställd"] == false)
             {
                 if (klaradetestet == true)
                 {
-                    //metod för att updatera godkänt resultat i databas 
-                    DateTime idag = DateTime.Today.Date;
-                    db.ändraDatum(idag, (int)Session["anvid"], antalrätt, antalfel);                  
+                    sql = "INSERT INTO test (användarid, datumgodkänt, antalrätt, antalfel, datumsenaste) VALUES (@anvid, @datum, @ratt, @fel, @datum)";
                 }
                 else if (klaradetestet == false)
                 {
-                    //metod för att updatera column för senaste test i databas
+                    sql = "INSERT INTO test (användarid, antalrätt, antalfel, datumsenaste) VALUES (@anvid, @ratt, @fel, @datum)";
                 }
             }
             else if ((bool)Session["anställd"] == true)
             {
                 if (klaradetestet == true)
                 {
-                    //metod för att inserta ett godkänt resultat i databas 
+                    sql = "UPDATE test SET datumgodkänt = @datum, antalrätt = @ratt, antalfel = @fel, datumsenaste = @datum WHERE användarid = @anvid";
                 }
                 else if (klaradetestet == false)
                 {
-                    //metod för att inserta ett senaste testdatum
+                    sql = "UPDATE test SET antalrätt = @ratt, antalfel = @fel, datumsenaste = @datum WHERE användarid = @anvid";
                 }
+
             }
+            db.sparaTest(sql, idag, (int)Session["anvid"], antalrätt, antalfel);
+
         }
 
         public void rättandet(int a, int b, int c, out double d, out double e, out double f)
@@ -195,6 +198,7 @@ namespace KP3000
 
             Gridden.DataSource = sammanfattning;
             Gridden.DataBind();
+
         }
 
         //griddview2
@@ -202,13 +206,11 @@ namespace KP3000
         {
             List<frågor> felsvar = (List<frågor>)Session["felsvar"];
 
+
             var resultat = from frågor in felsvar select new { frågor.Text, frågor.användarsvar, frågor.Svar, frågor.Svar2 };
-            //felsvar.Where(frågor => frågor.Text != null && frågor.användarsvar != null && frågor.Svar != null && frågor.Svar2 != null);
 
             Gridden2.DataSource = resultat.ToList();
             Gridden2.DataBind();
-
-
         }
 
         public void sparatilldatabas()
@@ -286,7 +288,7 @@ namespace KP3000
                 svarbra.Visible = false;
                 Label3.Visible = false;
                 Label4.Visible = true;
-                Label4.Text = "det blir till att göra om, sopa!";
+                Label4.Text = "Nej, det här duger inte. Du måste göra om testet!";
 
 
             }

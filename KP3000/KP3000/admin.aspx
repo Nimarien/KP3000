@@ -21,14 +21,14 @@
                 <div class=""></div>
                 <form class="form" runat="server">
                     
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Ska licensieras</div>
-                    <asp:GridView ID="GridLicensierade" DataKeyNames="namn, datumgodkänt, resultat, testdatum" runat="server" UseAccessibleHeader="true"></asp:GridView>
+                <div class="panel panel-primary" runat="server">
+                    <div class="panel-heading">Icke anställda (Licenstest)</div>
+                    <asp:GridView ID="GridLicensierade" DataKeyNames="namn, datumgodkänt, antalrätt, antalfel, testdatum" runat="server"></asp:GridView>
                 </div>
                     
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Medarbetare</div>
-                    <asp:GridView ID="GridOlicensierade" DataKeyNames="NAMN, GODKÄNT, RESULTAT, DATUM" runat="server" UseAccessibleHeader="true"></asp:GridView>
+                <div class="panel panel-primary" runat="server">
+                    <div class="panel-heading">Medarbetare (ÅKU-test)</div>
+                    <asp:GridView ID="GridOlicensierade" DataKeyNames="namn, datumgodkänt, antalrätt, antalfel, testdatum" runat="server"></asp:GridView>
                 </div>
                     
 
