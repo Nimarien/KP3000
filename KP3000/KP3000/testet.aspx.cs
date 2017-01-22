@@ -322,6 +322,7 @@ namespace KP3000
                     }
 
                     string[] ingenfrågamedisvaret = detkorrektasvaret[1].Split(':');
+
                     //här vill jag plocka ut bara strängen, och spara delnumret i en ny sträng.
                     string[] delen = detsomsvarats.Split(';');
 
@@ -370,6 +371,7 @@ namespace KP3000
                     }
                 }                
             }
+
 
             //åkudelen
             if ((bool)Session["anställd"] == false)
@@ -423,6 +425,7 @@ namespace KP3000
                     }
 
                     string[] ingenfrågamedisvaret = detkorrektasvaret[1].Split(':');
+
                     //här vill jag plocka ut bara strängen, och spara delnumret i en ny sträng.
                     string[] delen = detsomsvarats.Split(';');
 

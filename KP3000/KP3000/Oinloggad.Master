@@ -30,11 +30,11 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-                 <a class="navbar-brand" runat="server" href="~/">JE-Bankens Kompetensportal </a>
+                 <a class="navbar-brand" runat="server" href="~/login.aspx">JE-Bankens Kompetensportal </a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/inloggad.aspx">Startsidan</a></li>
+                        <li><a runat="server" href="~/login.aspx">Startsidan</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                     <li><a><span class="glyphicon glyphicon-user"></span>Ej inloggad</a></li>

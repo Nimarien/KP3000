@@ -158,6 +158,55 @@ namespace KP3000
             }
         }
 
+
+        /// <summary>
+        /// HÄMTA RESULTAT FÖR MEDARBETARE
+        /// </summary>
+        /// <param name="anvid"></param>
+        /// <returns></returns>
+        public BindingList<användare> hämtaresultat(int anvid)
+        {
+            try
+            {
+                conn.Open();
+                string sql = "SELECT test.datumgodkänt, test.antalrätt, test.antalfel " +
+                             " FROM användare " +
+                             " INNER JOIN test " +
+                             " ON användare.användarid = test.användarid " +
+                             " WHERE test.användarid = @anvid";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("anvid", anvid);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+
+                BindingList<användare> anvlista = new BindingList<användare>();
+                användare nyanvändare;
+
+                while (dr.Read())
+                {
+                     nyanvändare = new användare()
+                    {
+                        datumgodkänt = dr["datumgodkänt"].ToString(),
+                        antalRätt = (int)dr["antalrätt"],
+                        antalFel = (int)dr["antalfel"],
+                    };
+                    anvlista.Add(nyanvändare);
+                }
+
+                return anvlista;
+            }
+            catch (NpgsqlException ex)
+            {
+                this.ex = ex.Message;
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
         /// <summary>
         /// LÄGG TILL TEST I DATABAS
         /// </summary>
