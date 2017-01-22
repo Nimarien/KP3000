@@ -15,7 +15,8 @@ namespace KP3000
         public bool ärAdmin { get; set; }
         public DateTime testDatum { get; set; }
         public DateTime datumgodkänt { get; set; }
-        public 
+        public int antalRätt { get; set; }
+        public int antalFel { get; set; }
 
         public override string ToString()
         {

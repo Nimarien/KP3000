@@ -6,11 +6,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 
+
 namespace KP3000
 {
     public partial class rättning : System.Web.UI.Page
     {
-
+        Postgres db = new Postgres();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,7 +41,30 @@ namespace KP3000
             klar(procentett, proenttvå, procenttre, antalrätt, out klaradetestet);
             gridd3(klaradetestet);
 
-
+            if ((bool)Session["anställd"] == false)
+            {
+                if (klaradetestet == true)
+                {
+                    //metod för att updatera godkänt resultat i databas 
+                    DateTime idag = DateTime.Today.Date;
+                    db.ändraDatum(idag, (int)Session["anvid"], antalrätt, antalfel);                  
+                }
+                else if (klaradetestet == false)
+                {
+                    //metod för att updatera column för senaste test i databas
+                }
+            }
+            else if ((bool)Session["anställd"] == true)
+            {
+                if (klaradetestet == true)
+                {
+                    //metod för att inserta ett godkänt resultat i databas 
+                }
+                else if (klaradetestet == false)
+                {
+                    //metod för att inserta ett senaste testdatum
+                }
+            }
         }
 
         public void rättandet(int a, int b, int c, out double d, out double e, out double f)

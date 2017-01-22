@@ -162,7 +162,7 @@ namespace KP3000
             try
             {
                 conn.Open();
-                string sql = "INSERT INTO datum (datumgodkänt) VALUES (@datumg) WHERE användarid = @anvid";
+                string sql = "INSERT INTO test (datumgodkänt) VALUES (@datumg) WHERE användarid = @anvid";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("datumg", datumg);
@@ -181,18 +181,20 @@ namespace KP3000
         /// </summary>
         /// <param name="datum"></param>
         /// <param name="anvid"></param>
-        public void ändraDatum(DateTime datum, int anvid)
+        public void ändraDatum(DateTime datum, int anvid, int rätt, int fel)
         {
-            string datumg = datum.ToShortDateString();
+            
 
             try
             {
                 conn.Open();
-                string sql = "UPDATE datum SET datumgodkänt = @datumg WHERE användarid = @anvid";
+                string sql = "UPDATE test SET datumgodkänt = @datum, antalrätt = @ratt, antalfel = @fel, datumsenaste = @datum WHERE användarid = @anvid";
 
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("datumg", datumg);
+                cmd.Parameters.AddWithValue("datum", datum);
                 cmd.Parameters.AddWithValue("anvid", anvid);
+                cmd.Parameters.AddWithValue("ratt", rätt);
+                cmd.Parameters.AddWithValue("fel", fel);
                 cmd.ExecuteNonQuery();
             }
             catch (NpgsqlException ex)

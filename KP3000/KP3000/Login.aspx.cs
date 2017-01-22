@@ -62,7 +62,7 @@ namespace KP3000
         public void sessionInfo()
         {
             Session["anvid"] = användaren.anvid;
-            Session["användarnamn"] = användaren.användarnamn;
+            Session["användarnamn"] = användaren.namn;
             Session["login"] = användaren.login;
             Session["lösen"] = användaren.lösen;
             Session["anställd"] = användaren.anställd;
