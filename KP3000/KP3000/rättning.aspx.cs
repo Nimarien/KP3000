@@ -10,7 +10,7 @@ namespace KP3000
 {
     public partial class rättning : System.Web.UI.Page
     {
-
+        Postgres db = new Postgres();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,6 +40,33 @@ namespace KP3000
             klar(procentett, proenttvå, procenttre, antalrätt, out klaradetestet);
             gridd3(klaradetestet);
 
+            string idag = DateTime.Now.ToShortDateString();
+            string sql ="";
+
+            if ((bool)Session["anställd"] == false)
+            {
+                if (klaradetestet == true)
+                {
+                    sql = "INSERT INTO test (användarid, datumgodkänt, antalrätt, antalfel, datumsenaste) VALUES (@anvid, @datum, @ratt, @fel, @datum)";
+                }
+                else if (klaradetestet == false)
+                {
+                    sql = "INSERT INTO test (användarid, antalrätt, antalfel, datumsenaste) VALUES (@anvid, @ratt, @fel, @datum)";
+                }
+            }
+            else if ((bool)Session["anställd"] == true)
+            {
+                if (klaradetestet == true)
+                {
+                    sql = "UPDATE test SET datumgodkänt = @datum, antalrätt = @ratt, antalfel = @fel, datumsenaste = @datum WHERE användarid = @anvid";
+                }
+                else if (klaradetestet == false)
+                {
+                    sql = "UPDATE test SET antalrätt = @ratt, antalfel = @fel, datumsenaste = @datum WHERE användarid = @anvid";
+                }
+
+            }
+            db.sparaTest(sql, idag, (int)Session["anvid"], antalrätt, antalfel);
 
         }
 
@@ -171,6 +198,7 @@ namespace KP3000
 
             Gridden.DataSource = sammanfattning;
             Gridden.DataBind();
+
         }
 
         //griddview2
@@ -178,13 +206,11 @@ namespace KP3000
         {
             List<frågor> felsvar = (List<frågor>)Session["felsvar"];
 
+
             var resultat = from frågor in felsvar select new { frågor.Text, frågor.användarsvar, frågor.Svar, frågor.Svar2 };
-            //felsvar.Where(frågor => frågor.Text != null && frågor.användarsvar != null && frågor.Svar != null && frågor.Svar2 != null);
 
             Gridden2.DataSource = resultat.ToList();
             Gridden2.DataBind();
-
-
         }
 
         public void sparatilldatabas()
@@ -262,7 +288,7 @@ namespace KP3000
                 svarbra.Visible = false;
                 Label3.Visible = false;
                 Label4.Visible = true;
-                Label4.Text = "det blir till att göra om, sopa!";
+                Label4.Text = "Nej, det här duger inte. Du måste göra om testet!";
 
 
             }

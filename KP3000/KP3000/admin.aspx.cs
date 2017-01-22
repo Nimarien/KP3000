@@ -11,33 +11,39 @@ namespace KP3000
     public partial class admin1 : System.Web.UI.Page
     {
         Postgres db = new Postgres();
-        BindingList<användare> anvlista = new BindingList<användare>();
+        BindingList<användare> licenslista = new BindingList<användare>();
+        BindingList<användare> åkulista = new BindingList<användare>();
         användare anv = new användare();
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
             adminlogin.Text = Session["användarnamn"].ToString();
-            
+
+            gridLicencierade();
+            gridÅKU();
+
         }
 
         public void gridLicencierade()
         {
 
-            anvlista = db.hämtaLicensierade();
-            GridView gridlicens = new GridView();
+            licenslista = db.hämtaLicensierade();
 
-            gridlicens.DataSource = anvlista;
+            var resultat = from användare in licenslista select new { användare.namn, användare.datumgodkänt, användare.antalRätt, användare.antalFel, användare.testDatum};
 
-
-
+            GridLicensierade.DataSource = resultat;
+            GridLicensierade.DataBind();
         }
 
         public void gridÅKU()
         {
-            anvlista = db.hämtaÅKU();
+            licenslista = db.hämtaÅKU();
 
+            var resultat = from användare in licenslista select new { användare.namn, användare.datumgodkänt, användare.antalRätt, användare.antalFel, användare.testDatum };
 
+            GridOlicensierade.DataSource = resultat;
+            GridOlicensierade.DataBind();
         }
     }
 }

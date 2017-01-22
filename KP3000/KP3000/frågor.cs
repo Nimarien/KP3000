@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
 
 namespace KP3000
 {
@@ -16,8 +17,6 @@ namespace KP3000
         public string Svar { get; set; }
         public string Svar2 { get; set; }
         public string användarsvar { get; set; }
-
-        //ev koppling till databas?
 
 
         public override string ToString()
